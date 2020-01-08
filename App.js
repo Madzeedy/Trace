@@ -4,8 +4,14 @@ import * as Font from 'expo-font';
 import React, { useState } from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import GeneralStatusBarColor from './components/StatusBar/GeneralStatusBarColor';
+import Colors from './constants/Colors';
 
 import AppNavigator from './navigation/AppNavigator';
+import NotHeader from './components/Header/NotHeader';
+import BackHeader from './components/Header/BackHeader';
+import SplashScreen from './screens/SplashScreen';
+import ExploreScreen from './screens/ExploreScreen';
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
@@ -21,7 +27,8 @@ export default function App(props) {
   } else {
     return (
       <View style={styles.container}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+      <GeneralStatusBarColor backgroundColor={Colors.primary_white} barStyle="light-content" />
+        {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
         <AppNavigator />
       </View>
     );
