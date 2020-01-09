@@ -18,7 +18,6 @@ import StartingPublish from './screens/StartingPublish';
 import StartingSell from './screens/StartingSell';
 import StartingPick from './screens/StartingPick';
 
-
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
 
@@ -33,7 +32,7 @@ export default function App(props) {
   } else {
     return (
       <View style={styles.container}>
-      <GeneralStatusBarColor backgroundColor={Colors.primary_white} barStyle="light-content" />
+        <GeneralStatusBarColor backgroundColor={Colors.primary_white} barStyle="light-content" />
         {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
         <AppNavigator />
       </View>
@@ -52,6 +51,10 @@ async function loadResourcesAsync() {
       ...Ionicons.font,
       // We include SpaceMono because we use it in HomeScreen.js. Feel free to
       // remove this if you are not using it in your app
+      'font-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
+      'font-semi': require('./assets/fonts/OpenSans-SemiBold.ttf'),
+      'font-italic': require('./assets/fonts/OpenSans-Italic.ttf'),
+      'font-regular': require('./assets/fonts/OpenSans-Regular.ttf'),
       'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
     }),
   ]);
