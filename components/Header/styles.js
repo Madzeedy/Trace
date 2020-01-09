@@ -22,8 +22,9 @@ export default StyleSheet.create({
     title: {
         color: Colors.primary_white,
         fontSize: 20,
-        marginLeft: -2,
-        fontWeight: 'bold'
+        //marginLeft: screenWidth / ,
+        fontWeight: 'bold',
+        
         //fontFamily: 'font-bold',
     },
     buttonContainer: {
@@ -62,6 +63,6 @@ export default StyleSheet.create({
         marginVertical: 5
     },
     rightIcons: {
-        marginLeft: 180
+        marginLeft: screenWidth / 1.7,
     }
 })

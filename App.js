@@ -12,6 +12,12 @@ import NotHeader from './components/Header/NotHeader';
 import BackHeader from './components/Header/BackHeader';
 import SplashScreen from './screens/SplashScreen';
 import ExploreScreen from './screens/ExploreScreen';
+import Search2Screen from './screens/Search2Screen';
+import StartingCreate from './screens/StartingCreate';
+import StartingPublish from './screens/StartingPublish';
+import StartingSell from './screens/StartingSell';
+import StartingPick from './screens/StartingPick';
+
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
