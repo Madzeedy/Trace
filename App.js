@@ -12,10 +12,11 @@ import NotHeader from './components/Header/NotHeader';
 import BackHeader from './components/Header/BackHeader';
 import SplashScreen from './screens/SplashScreen';
 import ExploreScreen from './screens/ExploreScreen';
-import EventDetailsScreen from './screens/EventDetailsScreen';
-import SignUpScreen from './screens/SignUpScreen';
-import SearchScreen from './screens/SearchScreen';
-import TicketsDetailsScreen from './screens/TicketsDetailsScreen';
+import Search2Screen from './screens/Search2Screen';
+import StartingCreate from './screens/StartingCreate';
+import StartingPublish from './screens/StartingPublish';
+import StartingSell from './screens/StartingSell';
+import StartingPick from './screens/StartingPick';
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
@@ -33,7 +34,7 @@ export default function App(props) {
       <View style={styles.container}>
         <GeneralStatusBarColor backgroundColor={Colors.primary_white} barStyle="light-content" />
         {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
-        <TicketsDetailsScreen />
+        <AppNavigator />
       </View>
     );
   }
