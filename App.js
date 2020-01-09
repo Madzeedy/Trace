@@ -12,6 +12,10 @@ import NotHeader from './components/Header/NotHeader';
 import BackHeader from './components/Header/BackHeader';
 import SplashScreen from './screens/SplashScreen';
 import ExploreScreen from './screens/ExploreScreen';
+import EventDetailsScreen from './screens/EventDetailsScreen';
+import SignUpScreen from './screens/SignUpScreen';
+import SearchScreen from './screens/SearchScreen';
+import TicketsDetailsScreen from './screens/TicketsDetailsScreen';
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
@@ -27,9 +31,9 @@ export default function App(props) {
   } else {
     return (
       <View style={styles.container}>
-      <GeneralStatusBarColor backgroundColor={Colors.primary_white} barStyle="light-content" />
+        <GeneralStatusBarColor backgroundColor={Colors.primary_white} barStyle="light-content" />
         {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
-        <AppNavigator />
+        <TicketsDetailsScreen />
       </View>
     );
   }
@@ -46,6 +50,10 @@ async function loadResourcesAsync() {
       ...Ionicons.font,
       // We include SpaceMono because we use it in HomeScreen.js. Feel free to
       // remove this if you are not using it in your app
+      'font-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
+      'font-semi': require('./assets/fonts/OpenSans-SemiBold.ttf'),
+      'font-italic': require('./assets/fonts/OpenSans-Italic.ttf'),
+      'font-regular': require('./assets/fonts/OpenSans-Regular.ttf'),
       'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
     }),
   ]);
