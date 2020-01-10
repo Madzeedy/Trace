@@ -60,9 +60,9 @@ const styles = StyleSheet.create({
     },
     input: {
         // lineHeight: 40,
-        width: 243,
+        width: 96,
         borderColor: Colors.secondary_gray,
-        borderBottomWidth: 1.5,
+        borderBottomWidth: 2,
         fontSize: 14,
         color: Colors.secondary_gray,
     },

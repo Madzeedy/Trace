@@ -17,6 +17,14 @@ import StartingCreate from './screens/StartingCreate';
 import StartingPublish from './screens/StartingPublish';
 import StartingSell from './screens/StartingSell';
 import StartingPick from './screens/StartingPick';
+import TicketsDetailsScreen from './screens/TicketsDetailsScreen';
+import CreateEventScreen from './screens/CreateEventScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import BookTicketScreen from './screens/BookTicketScreen';
+import LoginScreen from './screens/LoginScreen';
+import MyEventScreen from './screens/MyEventScreen';
+import MyTicketScreen from './screens/MyTicketScreen';
+import CheckoutScreen from './screens/CheckoutScreen';
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
@@ -34,7 +42,7 @@ export default function App(props) {
       <View style={styles.container}>
         <GeneralStatusBarColor backgroundColor={Colors.primary_white} barStyle="light-content" />
         {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
-        <AppNavigator />
+        <CheckoutScreen />
       </View>
     );
   }
