@@ -1,15 +1,14 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-navigation-tabs';
 
 import TabBarIcon from '../components/TabBarIcon';
 import ExploreScreen from '../screens/ExploreScreen';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import TicketsScreen from '../screens/TicketsScreen';
-import SettingsScreen from '../screens/SettingsScreen';
-
+import Colors from '../constants/Colors';
+import SearchScreen from '../screens/SearchScreen';
+import ProfileScreen from '../screens/ProfileScreen'
+import MyTicketScreen from '../screens/MyTicketScreen';
 const config = Platform.select({
   web: { headerMode: 'screen' },
   default: {},
@@ -38,25 +37,25 @@ HomeStack.navigationOptions = {
 
 HomeStack.path = '';
 
-const LinksStack = createStackNavigator(
+const SearchStack = createStackNavigator(
   {
-    Links: LinksScreen,
+    Search: SearchScreen,
   },
   config
 );
 
-LinksStack.navigationOptions = {
+SearchStack.navigationOptions = {
   tabBarLabel: 'Search',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-search' : 'md-search'} />
   ),
 };
 
-LinksStack.path = '';
+SearchStack.path = '';
 
 const TicketsStack = createStackNavigator(
   {
-    Tickets: TicketsScreen
+    Tickets: MyTicketScreen
   },
   config
 );
@@ -74,29 +73,29 @@ TicketsStack.navigationOptions = {
 TicketsStack.path = "";
 
 
-const SettingsStack = createStackNavigator(
+const ProfileStack = createStackNavigator(
   {
-    Settings: SettingsScreen,
+    Profile: ProfileScreen,
   },
   config
 );
 
-SettingsStack.navigationOptions = {
+ProfileStack.navigationOptions = {
   tabBarLabel: 'Settings',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
   ),
 };
 
-SettingsStack.path = '';
+ProfileStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
-  LinksStack,
+  SearchStack,
   TicketsStack,
-  SettingsStack,
-});
+  ProfileStack,
 
+});
 tabNavigator.path = '';
 
 export default tabNavigator;
