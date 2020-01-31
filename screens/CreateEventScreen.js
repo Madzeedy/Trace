@@ -8,7 +8,7 @@ import styles from "../components/genStyle/styles"
 import SmallInput from "../components/TextInputs/SmallInput";
 const { width } = Dimensions.get("window");
 
-export default class TicketsDetailsScreen extends Component {
+export default class CreateEventScreen extends Component {
 
     constructor(props) {
         super(props);
@@ -23,40 +23,33 @@ export default class TicketsDetailsScreen extends Component {
 
             <View style={{ flex: 1 }}>
 
-                <BackHeader headerName="Tickets" onPress={() => alert('it should go back')} />
+                <BackHeader headerName="Create Events" onPress={() => alert('it should go back')} />
 
                 <ScrollView>
 
                     <View style={styles.Form}>
 
-                        <TransInput title="Ticket Name" />
+                        <TransInput title="Title" />
                         <TransInput title="Event Description" />
-                        <TransInput title="Sales starts" />
-                        <TransInput title="Sales ends" />
+                        <TransInput title="Event starts" />
+                        <TransInput title="Event ends" />
                     </View>
                     <View style={styles.Form}>
 
-                        <TransInput title="Quantity" keyboardtype="numeric" />
-                        <TransInput title="Amount" keyboardtype="numeric" />
+                        <TransInput title="Tickets" />
+                        <TransInput title="Venue" />
 
 
                     </View>
-                    <View style={styles.Form}>
-                        <Text style={styles.subTitle}>Tickets allowed per order</Text>
-                        <View style={styles.viewBack}>
 
-                            <SmallInput title="Minimum" />
-                            <SmallInput title="Maximum" />
 
-                        </View>
-                    </View>
                     <View style={styles.viewPicker}>
 
                         <Picker
                             style={styles.picker}
                             selectedValue={this.state.language}
                             onValueChange={(itemValue, itemIndex) => this.setState({ language: itemValue })}>
-                            <Picker.Item label="Payment options" value="Payments options" />
+                            <Picker.Item label="Event type" value="Event type" />
                             <Picker.Item label="Free" value="Free" />
                             <Picker.Item label="Mtn Mobile Money" value="Mtn Mobile Money" />
                             <Picker.Item label="Airtel Money" value="Airtel Money" />
@@ -70,12 +63,25 @@ export default class TicketsDetailsScreen extends Component {
                             style={styles.picker}
                             selectedValue={this.state.language}
                             onValueChange={(itemValue, itemIndex) => this.setState({ language: itemValue })}>
-                            <Picker.Item label="Sales channel" value="Sales channel" />
+                            <Picker.Item label="Event Category" value="Event Category" />
                             <Picker.Item label="Female" value="Female" />
                             <Picker.Item label="Male" value="Male" />
                         </Picker>
-                        <MainButton text="Done" />
                     </View>
+                    <View style={styles.viewPicker}>
+                        <Picker
+                            style={styles.picker}
+                            selectedValue={this.state.language}
+                            onValueChange={(itemValue, itemIndex) => this.setState({ language: itemValue })}>
+                            <Picker.Item label="Privacy" value="Privacy" />
+                            <Picker.Item label="Private event" value="Private event" />
+                            <Picker.Item label="Public event" value="Public event" />
+                        </Picker>
+                        <MainButton text="Create" />
+                    </View>
+
+
+
 
 
 
@@ -90,6 +96,6 @@ export default class TicketsDetailsScreen extends Component {
         );
     }
 }
-TicketsDetailsScreen.navigationOptions = {
+CreateEventScreen.navigationOptions = {
     header: null,
 };

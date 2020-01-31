@@ -10,11 +10,13 @@ import {
 } from "react-native";
 import NotHeader from "../components/Header/NotHeader";
 import * as Icon from "@expo/vector-icons";
+import { createMaterialTopTabNavigator } from "react-navigation-tabs";
 
 class ExploreScreen extends Component {
+
   render() {
     return (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
         <NotHeader headerName="Home" />
         <View style={styles.titles}>
           <View style={styles.title}>
@@ -25,154 +27,154 @@ class ExploreScreen extends Component {
           </View>
         </View>
         <View style={styles.border}></View>
-        <Text style={styles.caption}>Upcoming Events</Text>
-        <ScrollView horizontal={true} style={styles.scrollView}>
-          <View style={styles.events}>
-            <View style={styles.ImageCage}>
-              <Image
-                style={styles.image}
-                source={require("../assets/images/event1.jpg")}
-              />
-              <View style={styles.EventDetails}>
-                <Text style={styles.name}>Kigali</Text>
-                <Icon.AntDesign
-                  style={styles.rightIcon1}
-                  name={"sharealt"}
-                  size={25}
+        <ScrollView>
+
+          <Text style={styles.caption}>Upcoming Events</Text>
+          <ScrollView horizontal={true} style={styles.scrollView}>
+            <View style={styles.events}>
+              <View style={styles.ImageCage}>
+                <Image
+                  style={styles.image}
+                  source={require("../assets/images/event1.jpg")}
                 />
-                <Icon.AntDesign
-                  style={styles.rightIcon2}
-                  name={"hearto"}
-                  size={25}
-                />
+                <View style={styles.EventDetails}>
+                  <Text style={styles.name}>Kigali</Text>
+                  <Icon.AntDesign
+                    style={styles.rightIcon1}
+                    name={"sharealt"}
+                    size={25}
+                  />
+                  <Icon.AntDesign
+                    style={styles.rightIcon2}
+                    name={"hearto"}
+                    size={25}
+                  />
+                </View>
               </View>
+            </View>
+
+            <View style={styles.events}>
+              <View style={styles.ImageCage}>
+                <Image
+                  style={styles.image}
+                  source={require("../assets/images/event2.jpg")}
+                />
+                <View style={styles.EventDetails}>
+                  <Text style={styles.name}>Kigali</Text>
+                  <Icon.AntDesign
+                    style={styles.rightIcon1}
+                    name={"sharealt"}
+                    size={25}
+                  />
+                  <Icon.AntDesign
+                    style={styles.rightIcon2}
+                    name={"hearto"}
+                    size={25}
+                  />
+                </View>
+              </View>
+            </View>
+
+            <View style={styles.events}>
+              <View style={styles.ImageCage}>
+                <Image
+                  style={styles.image}
+                  source={require("../assets/images/event3.jpg")}
+                />
+                <View style={styles.EventDetails}>
+                  <Text style={styles.name}>Kigali</Text>
+                  <Icon.AntDesign
+                    style={styles.rightIcon1}
+                    name={"sharealt"}
+                    size={25}
+                  />
+                  <Icon.AntDesign
+                    style={styles.rightIcon2}
+                    name={"hearto"}
+                    size={25}
+                  />
+                </View>
+              </View>
+            </View>
+
+            <View style={styles.events}>
+              <View style={styles.ImageCage}>
+                <Image
+                  style={styles.image}
+                  source={require("../assets/images/event4.png")}
+                />
+                <View style={styles.EventDetails}>
+                  <Text style={styles.name}>Kigali</Text>
+                  <Icon.AntDesign
+                    style={styles.rightIcon1}
+                    name={"sharealt"}
+                    size={25}
+                  />
+                  <Icon.AntDesign
+                    style={styles.rightIcon2}
+                    name={"hearto"}
+                    size={25}
+                  />
+                </View>
+              </View>
+            </View>
+          </ScrollView>
+
+          <Text style={styles.caption}>All Events</Text>
+          <View style={styles.all}>
+            <Image
+              style={styles.image2}
+              source={require("../assets/images/event4.png")}
+            />
+            <View style={styles.image2details}>
+              <Text>Kigali Festival</Text>
+              <Text>31st Oct</Text>
             </View>
           </View>
 
-          <View style={styles.events}>
-            <View style={styles.ImageCage}>
-              <Image
-                style={styles.image}
-                source={require("../assets/images/event2.jpg")}
-              />
-              <View style={styles.EventDetails}>
-                <Text style={styles.name}>Kigali</Text>
-                <Icon.AntDesign
-                  style={styles.rightIcon1}
-                  name={"sharealt"}
-                  size={25}
-                />
-                <Icon.AntDesign
-                  style={styles.rightIcon2}
-                  name={"hearto"}
-                  size={25}
-                />
-              </View>
+          <View style={styles.all}>
+            <Image
+              style={styles.image2}
+              source={require("../assets/images/event3.jpg")}
+            />
+            <View style={styles.image2details}>
+              <Text>Kigali Festival</Text>
+              <Text>31st Oct</Text>
             </View>
           </View>
 
-          <View style={styles.events}>
-            <View style={styles.ImageCage}>
-              <Image
-                style={styles.image}
-                source={require("../assets/images/event3.jpg")}
-              />
-              <View style={styles.EventDetails}>
-                <Text style={styles.name}>Kigali</Text>
-                <Icon.AntDesign
-                  style={styles.rightIcon1}
-                  name={"sharealt"}
-                  size={25}
-                />
-                <Icon.AntDesign
-                  style={styles.rightIcon2}
-                  name={"hearto"}
-                  size={25}
-                />
-              </View>
+          <View style={styles.all}>
+            <Image
+              style={styles.image2}
+              source={require("../assets/images/event2.jpg")}
+            />
+            <View style={styles.image2details}>
+              <Text>Kigali Festival</Text>
+              <Text>31st Oct</Text>
             </View>
           </View>
 
-          <View style={styles.events}>
-            <View style={styles.ImageCage}>
-              <Image
-                style={styles.image}
-                source={require("../assets/images/event4.png")}
-              />
-              <View style={styles.EventDetails}>
-                <Text style={styles.name}>Kigali</Text>
-                <Icon.AntDesign
-                  style={styles.rightIcon1}
-                  name={"sharealt"}
-                  size={25}
-                />
-                <Icon.AntDesign
-                  style={styles.rightIcon2}
-                  name={"hearto"}
-                  size={25}
-                />
-              </View>
+          <View style={styles.all}>
+            <Image
+              style={styles.image2}
+              source={require("../assets/images/event1.jpg")}
+            />
+            <View style={styles.image2details}>
+              <Text>Kigali Festival</Text>
+              <Text>31st Oct</Text>
             </View>
           </View>
         </ScrollView>
-
-        <Text style={styles.caption}>All Events</Text>
-        <View style={styles.all}>
-          <Image
-            style={styles.image2}
-            source={require("../assets/images/event4.png")}
-          />
-          <View style={styles.image2details}>
-            <Text>Kigali Festival</Text>
-            <Text>31st Oct</Text>
-          </View>
-        </View>
-
-        <View style={styles.all}>
-          <Image
-            style={styles.image2}
-            source={require("../assets/images/event3.jpg")}
-          />
-          <View style={styles.image2details}>
-            <Text>Kigali Festival</Text>
-            <Text>31st Oct</Text>
-          </View>
-        </View>
-
-        <View style={styles.all}>
-          <Image
-            style={styles.image2}
-            source={require("../assets/images/event2.jpg")}
-          />
-          <View style={styles.image2details}>
-            <Text>Kigali Festival</Text>
-            <Text>31st Oct</Text>
-          </View>
-        </View>
-
-        <View style={styles.all}>
-          <Image
-            style={styles.image2}
-            source={require("../assets/images/event1.jpg")}
-          />
-          <View style={styles.image2details}>
-            <Text>Kigali Festival</Text>
-            <Text>31st Oct</Text>
-          </View>
-        </View>
-      </ScrollView>
+      </View>
     );
   }
 }
-ExploreScreen.navigationOptions = {
-  header: null
-};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    paddingBottom: 40
+    paddingBottom: 40,
   },
   title: {
     height: 40
@@ -184,15 +186,17 @@ const styles = StyleSheet.create({
     margin: 0,
     position: "absolute",
     top: "50%",
-    fontSize: 18,
+    fontSize: 16,
     marginLeft: 230,
+    fontFamily: 'font-semi',
     color: "#070707"
   },
   text1: {
     margin: 0,
     position: "absolute",
     top: "50%",
-    fontSize: 18,
+    fontSize: 16,
+    fontFamily: 'font-semi',
     marginLeft: 20,
     color: "#070707"
   },
@@ -248,12 +252,13 @@ const styles = StyleSheet.create({
     borderRadius: 5
   },
   image2details: {
-      marginLeft: 10,
-      paddingBottom: 30
+    marginLeft: 10,
+    paddingBottom: 30
   },
   all: {
     flexDirection: "row"
   }
 });
+
 
 export default ExploreScreen;
