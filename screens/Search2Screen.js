@@ -6,33 +6,123 @@ import {
   ScrollView,
   Picker,
   Image,
-  Platform
+  Platform,
+  TouchableOpacity
 } from "react-native";
 import NotHeader from "../components/Header/NotHeader";
 import * as Icon from "@expo/vector-icons";
 import BackHeader from "../components/Header/BackHeader";
 import Colors from "../constants/Colors";
+import { RadioButton } from "react-native-paper";
 
 class Search2Screen extends Component {
+  state = {
+    checked: "first"
+  };
+
+  Ticked() {
+    return (
+      <View>
+        <Icon.MaterialIcons
+          style={styles.checked}
+          name={"my-location"}
+          size={25}
+          color={Colors.primary_black}
+        />
+      </View>
+    );
+  }
+
   render() {
+    const { checked } = this.state;
+
     return (
       <View style={styles.container}>
         <BackHeader headerName="Time works for you" />
         <View style={styles.time}>
-          <View style={styles.ticked}>
+          <TouchableOpacity
+            style={styles.ticked}
+            onPress={() => {
+              this.Ticked();
+            }}
+          >
             <Text style={styles.timesA}>Any Time</Text>
-            <Icon.AntDesign
-              style={styles.rightIcons}
-              name={"check"}
-              size={25}
-              color='#008735'
-            />
-          </View>
-          <Text style={styles.times}>Today</Text>
-          <Text style={styles.times}>Tomorrow</Text>
-          <Text style={styles.times}>This Weekend</Text>
-          <Text style={styles.times}>In This Months</Text>
-          <Text style={styles.times}>Pick a Date</Text>
+            <View style={styles.radioButtons}>
+              <RadioButton
+                value="first"
+                status={checked === "first" ? "checked" : "unchecked"}
+                onPress={() => {
+                  this.setState({ checked: "first" });
+                }}
+              />
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.ticked}>
+            <Text style={styles.timesA}>Today</Text>
+            <View style={styles.radioButtons}>
+              <RadioButton
+                value="second"
+                status={checked === "second" ? "checked" : "unchecked"}
+                onPress={() => {
+                  this.setState({ checked: "second" });
+                }}
+              />
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.ticked}>
+            <Text style={styles.timesA}>Tomorrow</Text>
+            <View style={styles.radioButtons}>
+              <RadioButton
+                value="third"
+                status={checked === "third" ? "checked" : "unchecked"}
+                onPress={() => {
+                  this.setState({ checked: "third" });
+                }}
+              />
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.ticked}>
+            <Text style={styles.timesA}>This Weekend</Text>
+            <View style={styles.radioButtons}>
+              <RadioButton
+                value="fourth"
+                status={checked === "fourth" ? "checked" : "unchecked"}
+                onPress={() => {
+                  this.setState({ checked: "fourth" });
+                }}
+              />
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.ticked}>
+            <Text style={styles.timesA}>This Month</Text>
+            <View style={styles.radioButtons}>
+              <RadioButton
+                selectionColor={Colors.primary_black}
+                value="fifth"
+                status={checked === "fifth" ? "checked" : "unchecked"}
+                onPress={() => {
+                  this.setState({ checked: "fifth" });
+                }}
+              />
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.ticked}>
+            <Text style={styles.timesA}>Pick a Date</Text>
+            <View style={styles.radioButtons}>
+              <RadioButton
+                value="sixth"
+                status={checked === "sixth" ? "checked" : "unchecked"}
+                onPress={() => {
+                  this.setState({ checked: "sixth" });
+                }}
+              />
+            </View>
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -48,6 +138,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     paddingBottom: 40
   },
+  checkMark: {
+    marginLeft: 120,
+    height: 30
+  },
+  radioButtons: {
+    marginLeft: "auto",
+    //backgroundColor: "#232323",
+    height: 30
+  },
   time: {
     marginLeft: 40,
     marginTop: 60
@@ -59,19 +158,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#959c97"
   },
-  times: {
-    paddingTop: 30,
-    fontSize: 16,
-    fontWeight: "bold",
-    color: "#959c97"
-  },
   ticked: {
-    marginLeft: 40,
-    flexDirection: "row"
-  },
-  rightIcons: {
-      marginTop: 10,
-      marginLeft: 160
+    marginLeft: 30,
+    paddingBottom: 30,
+    flexDirection: "row",
+    paddingRight: 30
   }
 });
 
