@@ -25,6 +25,7 @@ import LoginScreen from './screens/LoginScreen';
 import MyEventScreen from './screens/MyEventScreen';
 import MyTicketScreen from './screens/MyTicketScreen';
 import CheckoutScreen from './screens/CheckoutScreen';
+import SignUpScreen from './screens/SignUpScreen';
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
@@ -42,7 +43,7 @@ export default function App(props) {
       <View style={styles.container}>
         <GeneralStatusBarColor backgroundColor={Colors.primary_white} barStyle="light-content" />
         {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
-        <CheckoutScreen />
+        <AppNavigator />
       </View>
     );
   }

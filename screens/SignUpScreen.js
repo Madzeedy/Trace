@@ -47,12 +47,10 @@ class SignUpScreen extends Component {
                         <TransInput title="Email Address" />
                         <TransInput title="Phone Number" keyboardtype="numeric" />
 
-                        <MainButton text="Get Started" />{/* <MainButton text="Sign
-                         Up" onPress={() => this.props.navigation.navigate("TabScreen")} /> */}
-
+                        <MainButton text="Get Started" onPress={() => this.props.navigation.navigate("TabScreen")} />
                         <TouchableOpacity>
 
-                            <Text style={styles.ptext}>Already an Account ?<Text style={styles.span}>Login</Text> </Text>
+                            <Text style={styles.ptext}>Already an Account? <Text style={styles.span}>Login</Text> </Text>
                         </TouchableOpacity>
                         <Text style={styles.ptext}>By continuing, you agree to traceEvent's
                                Terms of use and <Text style={styles.span}>privacy policy</Text>.</Text>

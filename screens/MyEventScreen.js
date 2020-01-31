@@ -16,7 +16,7 @@ class MyEventScreen extends Component {
     render() {
         return (
             <ScrollView style={{ flex: 1 }}>
-                <NotHeader headerName="Home" />
+                {/* <NotHeader headerName="Home" /> */}
 
                 <Text style={styles.caption}>Events near you</Text>
                 <View style={styles.all}>
