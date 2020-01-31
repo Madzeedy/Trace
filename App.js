@@ -17,6 +17,18 @@ import StartingCreate from './screens/StartingCreate';
 import StartingPublish from './screens/StartingPublish';
 import StartingSell from './screens/StartingSell';
 import StartingPick from './screens/StartingPick';
+import ManageEventsScreen from './screens/ManageEventsScreen';
+import Profile1Screen from './screens/Profile1Screen';
+import SearchScreen from './screens/SearchScreen';
+import SettingsNotifScreen from './screens/SettingsNotifScreen';
+import NotificationScreen from './screens/NotificationScreen';
+import PaymentScreen from './screens/PaymentScreen';
+import RadioButtonComponent from './components/Buttons/RadioButton';
+import Search3Screen from './screens/Search3Screen';
+import TabTrial from './screens/TabTrial';
+import DateTimePickerTest from './screens/DateTimePickerTest';
+import Now from './screens/Now';
+
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
