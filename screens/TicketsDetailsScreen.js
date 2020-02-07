@@ -23,7 +23,7 @@ export default class TicketsDetailsScreen extends Component {
 
             <View style={{ flex: 1 }}>
 
-                <BackHeader headerName="Tickets" onPress={() => alert('it should go back')} />
+                <BackHeader headerName="Tickets" onPress={() => this.props.navigation.goBack()} />
 
                 <ScrollView>
 

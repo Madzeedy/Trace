@@ -9,9 +9,13 @@ import {
   Platform,
   TextInput,
   Button,
-  TouchableOpacity
+  TouchableOpacity,
+  Dimensions
 } from "react-native";
 import Colors from '../constants/Colors'
+
+const { width } = Dimensions.get("window");
+const screenheight = Dimensions.get("window").height;
 
 const images = [
   require("../assets/images/movie-hall-pic7.jpg"),
@@ -32,7 +36,7 @@ class StartingPublish extends Component {
         <Text style={styles.undertext}>
           Get Updated with all new events and be able to create your own
         </Text>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("StartingCreate")}>
           <Text style={styles.text}>Skip</Text>
         </TouchableOpacity>
       </View>
@@ -80,8 +84,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#e38629',
     paddingHorizontal: 40,
     paddingVertical: 8,
-    width: 220,
-    height: 30,
+    width: width - 100,
+    //height: 30,
     alignItems: "center",
     justifyContent: "center"
   },

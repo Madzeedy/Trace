@@ -29,13 +29,14 @@ class StartingPick extends Component {
           style={styles.image}
           source={require("../assets/images/Location-Intelligence.jpg")}
         />
-        <Text style={styles.title}>Pick Your City</Text>
+        <Text style={styles.title} onPress={() => this.props.navigation.navigate("Login")}>Skip</Text>
         <Text style={styles.undertext}>
           Get Updated with all new events and be able to create your own
         </Text>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.text}>Skip</Text>
+        <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("Search3Screen")}>
+          <Text style={styles.text}>Pick Your City</Text>
         </TouchableOpacity>
+        <Button title="Hey" style={styles.skip} />
       </View>
     );
   }
@@ -51,10 +52,10 @@ const styles = StyleSheet.create({
   },
   title: {
     position: "absolute",
-    marginTop: 80,
-    marginLeft: 115,
+    marginTop: 10,
+    marginLeft: 265,
     fontSize: 18,
-    //fontWeight: "bold",
+    fontWeight: "bold",
     color: "#ffff"
   },
   image: {

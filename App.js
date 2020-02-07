@@ -11,7 +11,7 @@ import AppNavigator from './navigation/AppNavigator';
 import NotHeader from './components/Header/NotHeader';
 import BackHeader from './components/Header/BackHeader';
 import SplashScreen from './screens/SplashScreen';
-import ExploreScreen from './screens/ExploreScreen';
+import HomeScreen from './screens/LandScreen';
 import Search2Screen from './screens/Search2Screen';
 import StartingCreate from './screens/StartingCreate';
 import StartingPublish from './screens/StartingPublish';
@@ -28,7 +28,10 @@ import RadioButtonComponent from './components/Buttons/RadioButton';
 import Search3Screen from './screens/Search3Screen';
 import TabTrial from './screens/TabTrial';
 import DateTimePickerTest from './screens/DateTimePickerTest';
-import Now from './screens/Now';
+import NowScreen from './screens/NowScreen';
+import TicketsDetailsScreen from './screens/TicketsDetailsScreen';
+import ExploreScreen from './screens/ExploreScreen';
+import MyEventScreen from './screens/MyEventScreen';
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
@@ -44,7 +47,7 @@ export default function App(props) {
   } else {
     return (
       <View style={styles.container}>
-        <GeneralStatusBarColor backgroundColor={Colors.primary_white} barStyle="light-content" />
+        <GeneralStatusBarColor backgroundColor={Colors.primary_black} barStyle="light-content" />
         {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
         <AppNavigator />
       </View>

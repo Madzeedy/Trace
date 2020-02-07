@@ -32,7 +32,7 @@ class StartingSell extends Component {
         <Text style={styles.undertext}>
           Get Updated with all new events and be able to create your own
         </Text>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("StartingBuy")}>
           <Text style={styles.text}>Skip</Text>
         </TouchableOpacity>
       </View>
@@ -50,11 +50,12 @@ const styles = StyleSheet.create({
   },
   title: {
     position: "absolute",
-    marginTop: 80,
-    marginLeft: 115,
-    fontSize: 18,
+    marginTop: 100,
+    marginLeft: 95,
+    fontSize: 28,
     //fontWeight: "bold",
-    color: "#ffff"
+    color: "#232323",
+    fontWeight: "bold"
   },
   image: {
     width: "100%",
@@ -65,9 +66,9 @@ const styles = StyleSheet.create({
     marginTop: 400,
     marginLeft: 60,
     marginRight: 60,
-    fontSize: 12,
-    //fontWeight: "bold",
-    color: "#ffff",
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#232323",
     textAlign: "center"
   },
 

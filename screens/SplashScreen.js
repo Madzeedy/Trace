@@ -4,11 +4,25 @@ import {
   StyleSheet,
   View,
   TouchableHighlight,
-  Image
+  Image,
+  Dimensions
 } from "react-native";
+
+const { width } = Dimensions.get("window");
 
 
 export default class SplashScreen extends Component {
+
+  componentDidMount (){
+
+    setTimeout(() => {
+
+        this.props.navigation.navigate('StartingPublish')
+      
+    }, 5000);
+
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -17,29 +31,30 @@ export default class SplashScreen extends Component {
               style={styles.image}
               source={require("../assets/images/Splash_Screen.png")}
             />
-            <View style={styles.Text}>
+            {/* <View style={styles.Text}>
               <Text style={styles.text}>
                 Powered by Limitless
               </Text>
-            </View>
+            </View> */}
           </View>
       </View>
     );
   }
 }
 
+SplashScreen.navigationOptions = {
+  header: null
+};
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  },
+  
   image: {
-      width: 220,
-      height: 480,
+      width: width - 0,
+      height: 540,
 
   },
   text: {
+    position: "absolute",
     color: "#7A7A7A",
     fontSize: 12,
     textAlign: "center",
