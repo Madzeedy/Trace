@@ -4,7 +4,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-navigation-tabs';
 
 import TabBarIcon from '../components/TabBarIcon';
-import ExploreScreen from '../screens/ExploreScreen';
+import HomeScreen from '../screens/LandScreen';
 import Colors from '../constants/Colors';
 import SearchScreen from '../screens/SearchScreen';
 import ProfileScreen from '../screens/ProfileScreen'
@@ -16,7 +16,7 @@ const config = Platform.select({
 
 const HomeStack = createStackNavigator(
   {
-    Home: ExploreScreen,
+    Home: HomeScreen,
   },
   config
 );

@@ -19,7 +19,7 @@ class Search3Screen extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <BackHeader headerName="Select A City" />
+        <BackHeader headerName="Select A City" onPress={() => this.props.navigation.goBack()}/>
         <View style={styles.Up}>
           <TextInput
             style={styles.input}
@@ -31,6 +31,7 @@ class Search3Screen extends Component {
             name={"search"}
             size={25}
             color={Colors.secondary_gray}
+            onPress={() => this.props.navigation.navigate("TabScreen")}
           />
         </View>
         <View style={styles.location}>

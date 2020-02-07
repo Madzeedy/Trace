@@ -1,24 +1,41 @@
-import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import React, { Component } from "react";
 import {
-  View,
   StyleSheet,
   Text,
+  View,
   ScrollView,
+  Picker,
   Image,
-  TouchableOpacity
+  Platform
 } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
 import NotHeader from "../components/Header/NotHeader";
 import * as Icon from "@expo/vector-icons";
-//import styles from "../components/genStyle/styles"
+import { createMaterialTopTabNavigator } from "react-navigation-tabs";
 
-class ExploreScreen extends Component {
-  render( { onPress, text } = this.props ) {
+class NowScreen extends Component {
+
+  handleClick= function() {
+    this.setState({
+      bgColor: 'blue'
+    })
+  }
+
+  render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.caption}>Upcoming Events</Text>
+        <NotHeader headerName="Home" onPress={() => this.props.navigation.navigate("Notification")}/>
+        <View style={styles.titles}>
+          <View style={styles.title}>
+            <Text style={styles.text1}>My Events</Text>
+          </View>
+          <View style={styles.title}>
+            <Text style={styles.text2}>Explore</Text>
+          </View>
+        </View>
+        <View style={styles.border}></View>
         <ScrollView>
+
+          <Text style={styles.caption}>Upcoming Events</Text>
           <ScrollView horizontal={true} style={styles.scrollView}>
             <View style={styles.events}>
               <View style={styles.ImageCage}>
@@ -34,6 +51,7 @@ class ExploreScreen extends Component {
                     size={25}
                   />
                   <Icon.AntDesign
+                    onClick={this.handleClick}
                     style={styles.rightIcon2}
                     name={"hearto"}
                     size={25}
@@ -110,11 +128,7 @@ class ExploreScreen extends Component {
           </ScrollView>
 
           <Text style={styles.caption}>All Events</Text>
-
-          <TouchableOpacity >
-          <View
-            style={styles.all}
-          >
+          <View style={styles.all}>
             <Image
               style={styles.image2}
               source={require("../assets/images/event4.png")}
@@ -124,7 +138,6 @@ class ExploreScreen extends Component {
               <Text>31st Oct</Text>
             </View>
           </View>
-          </TouchableOpacity>
 
           <View style={styles.all}>
             <Image
@@ -164,7 +177,7 @@ class ExploreScreen extends Component {
   }
 }
 
-ExploreScreen.navigationOptions = {
+NowScreen.navigationOptions = {
   header: null
 };
 
@@ -172,10 +185,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     // marginTop: -20,
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
     // paddingBottom: 40,
   },
-
   title: {
     height: 40
   },
@@ -188,7 +200,7 @@ const styles = StyleSheet.create({
     top: "50%",
     fontSize: 16,
     marginLeft: 230,
-    fontFamily: "font-semi",
+    fontFamily: 'font-semi',
     color: "#070707"
   },
   text1: {
@@ -196,7 +208,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: "50%",
     fontSize: 16,
-    fontFamily: "font-semi",
+    fontFamily: 'font-semi',
     marginLeft: 20,
     color: "#070707"
   },
@@ -259,4 +271,6 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   }
 });
-export default ExploreScreen;
+
+
+export default NowScreen;

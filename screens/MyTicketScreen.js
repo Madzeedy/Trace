@@ -24,7 +24,7 @@ export default class MyTicketScreen extends Component {
 
             <View style={{ flex: 1 }}>
 
-                <NotHeader headerName="Tickets" onPress={() => alert('it should go back')} />
+                <NotHeader headerName="Tickets" onPress={() => this.props.navigation.navigate("Notification")} />
 
                 <ScrollView>
 
