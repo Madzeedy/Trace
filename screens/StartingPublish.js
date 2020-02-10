@@ -9,10 +9,12 @@ import {
   Platform,
   TextInput,
   Button,
-  TouchableOpacity
+  TouchableOpacity,
+  Dimensions
 } from "react-native";
 import Colors from '../constants/Colors'
-
+import MainButton from "../components/Buttons/mainButton";
+const { width } = Dimensions.get("window");
 const images = [
   require("../assets/images/movie-hall-pic7.jpg"),
   require("../assets/images/Location-Intelligence.jpg"),
@@ -33,7 +35,8 @@ class StartingPublish extends Component {
           Get Updated with all new events and be able to create your own
         </Text>
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.text}>Skip</Text>
+          {/* <Text style={styles.text}>Skip</Text> */}
+          <MainButton text="Skip" />
         </TouchableOpacity>
       </View>
     );
@@ -53,6 +56,7 @@ const styles = StyleSheet.create({
     marginTop: 80,
     marginLeft: 115,
     fontSize: 18,
+    fontFamily: "font-semi",
     //fontWeight: "bold",
     color: "#ffff"
   },
@@ -66,6 +70,7 @@ const styles = StyleSheet.create({
     marginLeft: 60,
     marginRight: 60,
     fontSize: 12,
+    fontFamily: "font-semi",
     //fontWeight: "bold",
     color: "#ffff",
     textAlign: "center"
@@ -75,9 +80,15 @@ const styles = StyleSheet.create({
     position: "absolute",
     borderRadius: 5,
     marginTop: 480,
-    marginLeft: 50,
+    ...Platform.select({
+      ios: {
+        marginLeft: width / 6,
+      },
+      android: {
+        marginLeft: width / 5,
+      },
+    }),
     // width: width-35,
-    backgroundColor: '#e38629',
     paddingHorizontal: 40,
     paddingVertical: 8,
     width: 220,

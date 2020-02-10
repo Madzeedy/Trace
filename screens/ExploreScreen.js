@@ -11,6 +11,7 @@ import {
 import NotHeader from "../components/Header/NotHeader";
 import * as Icon from "@expo/vector-icons";
 import { createMaterialTopTabNavigator } from "react-navigation-tabs";
+import Colors from "../constants/Colors";
 
 class ExploreScreen extends Component {
 
@@ -42,12 +43,12 @@ class ExploreScreen extends Component {
                   <Icon.AntDesign
                     style={styles.rightIcon1}
                     name={"sharealt"}
-                    size={25}
+                    size={22}
                   />
                   <Icon.AntDesign
                     style={styles.rightIcon2}
                     name={"hearto"}
-                    size={25}
+                    size={22}
                   />
                 </View>
               </View>
@@ -221,29 +222,50 @@ const styles = StyleSheet.create({
   ImageCage: {
     height: 159,
     width: 216,
-    borderWidth: 0.4,
     marginLeft: 30,
-    borderRadius: 5
+    borderRadius: 5,
+    borderColor: '#fff',
+    backgroundColor: '#fff',
+    ...Platform.select({
+      ios: {
+        shadowColor: 'rgba(0,0,0,0.4)',
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 5,
+      },
+      android: {
+        elevation: 1,
+      },
+    }),
   },
-  EventDetails: {},
+  events: {
+    paddingBottom: 10,
+  },
+
   ImageDetails: {
     flexDirection: "row"
   },
   rightIcon1: {
     marginLeft: 110,
-    marginTop: -20,
+    marginTop: -12,
     color: "#707070"
   },
   rightIcon2: {
     marginLeft: 170,
-    marginTop: -25,
+    marginTop: -22,
     color: "#707070"
   },
   scrollView: {
     maxHeight: 160
   },
   name: {
-    marginLeft: 5
+    marginLeft: 5,
+    fontFamily: 'font-semi',
+    fontSize: 12,
+
   },
   image2: {
     marginLeft: 50,
