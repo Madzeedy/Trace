@@ -49,7 +49,7 @@ export default function App(props) {
       <View style={styles.container}>
         <GeneralStatusBarColor backgroundColor={Colors.primary_black} barStyle="light-content" />
         {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
-        <StartingPick />
+        <AppNavigator />
       </View>
     );
   }

@@ -32,8 +32,8 @@ HomeStack.navigationOptions = {
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-home${focused ? '' : '-outline'}`
-          : 'md-home'
+          ? `home${focused ? '' : '-outline'}`
+          : 'home'
       }
     />
 
@@ -56,7 +56,7 @@ SearchStack.navigationOptions = {
     activeTintColor: Colors.traceButtonColor,
   },
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-search' : 'md-search'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'search' : 'search'} />
   ),
 };
 
@@ -77,7 +77,7 @@ TicketsStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === "ios" ? "ios-share" : "md-share"}
+      name={Platform.OS === "ios" ? "ticket" : "ticket"}
     />
   )
 };
@@ -98,7 +98,7 @@ ProfileStack.navigationOptions = {
     activeTintColor: Colors.traceButtonColor,
   },
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'cogs' : 'cogs'} />
   ),
 };
 

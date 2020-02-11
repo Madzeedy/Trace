@@ -27,8 +27,8 @@ class HomeScreen extends Component {
             onPress={() => this.props.navigation.navigate("Notification")}
           />
           <Tab.Navigator>
-            <Tab.Screen name="My Events" component={MyEventScreen} />
             <Tab.Screen name="Explore" component={ExploreScreen} />
+            <Tab.Screen name="My Events" component={MyEventScreen} />
           </Tab.Navigator>
         </View>
       </NavigationContainer>
