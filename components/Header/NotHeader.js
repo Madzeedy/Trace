@@ -24,6 +24,7 @@ const NotHeader = (props) => {
           name={'md-notifications'}
           size={25}
           color={Colors.primary_white}
+          onPress={onPress}
         />
       </View>
     </View>

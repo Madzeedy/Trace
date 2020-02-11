@@ -34,5 +34,6 @@ export default {
   traceButtonColor: '#e36a0f',
   traceTextColor: '#73cdfe',
   traceTitle: '#232323',
-  traceHeader: '#008735'
+  traceHeader: '#008735',
+  traceIcons:  '#1a71e5'
 };

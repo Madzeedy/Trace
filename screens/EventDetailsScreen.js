@@ -20,7 +20,7 @@ import * as Icon from '@expo/vector-icons'
 import { MonoText } from "../components/StyledText";
 import MainButton from "../components/Buttons/mainButton";
 import Inputs from "../components/Input";
-import TransInput from "../components/TextInputs/EditInput";
+//import TransInput from "../components/TextInputs/EditInput";
 import Colors from "../constants/Colors";
 import styles from '../components/genStyle/styles'
 // import FormPicker from '../components/select/selectPicker';

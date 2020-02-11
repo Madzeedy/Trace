@@ -14,14 +14,10 @@ import {
 } from "react-native";
 import Colors from '../constants/Colors'
 import MainButton from "../components/Buttons/mainButton";
+
 const { width } = Dimensions.get("window");
-const images = [
-  require("../assets/images/movie-hall-pic7.jpg"),
-  require("../assets/images/Location-Intelligence.jpg"),
-  require("../assets/images/wave-cinemas-gaur-central-mall-raj-nagar-ghaziabad-ghaziabad-multiplex-cinema-halls-3emuxsl.jpg"),
-  require("../assets/images/event2.jpg"), // Network image
-  require("../assets/images/tickets.jpeg") // Local image
-];
+const screenheight = Dimensions.get("window").height;
+
 class StartingPublish extends Component {
   render() {
     return (
@@ -34,7 +30,7 @@ class StartingPublish extends Component {
         <Text style={styles.undertext}>
           Get Updated with all new events and be able to create your own
         </Text>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("StartingCreate")}>
           {/* <Text style={styles.text}>Skip</Text> */}
           <MainButton text="Skip" />
         </TouchableOpacity>
@@ -91,8 +87,8 @@ const styles = StyleSheet.create({
     // width: width-35,
     paddingHorizontal: 40,
     paddingVertical: 8,
-    width: 220,
-    height: 30,
+    width: width - 100,
+    //height: 30,
     alignItems: "center",
     justifyContent: "center"
   },

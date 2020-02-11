@@ -8,11 +8,12 @@ import * as Icon from '@expo/vector-icons'
 import styles from './styles'
 import Colors from '../../constants/Colors';
 
+
 const BackHeader = (props) => {
   const { onPress,headerName } = props
 
   return (
-    <View style={[styles.container,{backgroundColor: Colors.primary_white,elevation: 3}]}>
+    <View style={[styles.container,{backgroundColor: Colors.traceHeader,elevation: 3}]}>
       <View style={styles.wrapper}>
       <TouchableOpacity
           onPress={onPress}
@@ -22,16 +23,18 @@ const BackHeader = (props) => {
           <Icon.Ionicons
             name={Platform.os==='ios'?'ios-arrow-round-back':'md-arrow-round-back'}
             size={25}
-            color={Colors.primary} />
+            color={Colors.primary_white}
+            onPress={onPress}
+             />
         </TouchableOpacity>
-        <Text style={[styles.title,{color:Colors.primary_black, fontSize: 16, marginLeft: 40}]}>{headerName}  </Text>
+        <Text style={[styles.title,{color:Colors.primary_white, fontSize: 16, marginLeft: 40}]}>{headerName}  </Text>
       </View>
     </View>
   );
 }
 
 BackHeader.propTypes = {
-  onPress: PropTypes.func,
+  onPress: PropTypes.func.isRequired,
   headerName: PropTypes.string,
 }
 
