@@ -30,9 +30,9 @@ class StartingPublish extends Component {
         <Text style={styles.undertext}>
           Get Updated with all new events and be able to create your own
         </Text>
-        <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("StartingCreate")}>
+        <TouchableOpacity style={styles.button} >
           {/* <Text style={styles.text}>Skip</Text> */}
-          <MainButton text="Skip" />
+          <MainButton text="Skip" onPress={() => this.props.navigation.navigate("StartingCreate")}/>
         </TouchableOpacity>
       </View>
     );
@@ -75,18 +75,25 @@ const styles = StyleSheet.create({
   button: {
     position: "absolute",
     borderRadius: 5,
-    marginTop: 480,
     ...Platform.select({
       ios: {
-        marginLeft: width / 6,
+        marginTop: width / 0.7
       },
       android: {
-        marginLeft: width / 5,
-      },
+        marginTop: width / 0.7
+      }
     }),
-    // width: width-35,
-    paddingHorizontal: 40,
-    paddingVertical: 8,
+    //marginTop: 460,
+    ...Platform.select({
+      ios: {
+        marginLeft: width / 6
+      },
+      android: {
+        marginLeft: width / 7.4
+      }
+    }),
+    //paddingHorizontal: 40,
+    //paddingVertical: 8,
     width: width - 100,
     //height: 30,
     alignItems: "center",
