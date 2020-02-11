@@ -1,4 +1,3 @@
-import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import React, { Component } from "react";
 import {
   View,
@@ -11,12 +10,11 @@ import {
 import { NavigationContainer } from "@react-navigation/native";
 import NotHeader from "../components/Header/NotHeader";
 import * as Icon from "@expo/vector-icons";
-import { createMaterialTopTabNavigator } from "react-navigation-tabs";
 import Colors from "../constants/Colors";
 //import styles from "../components/genStyle/styles"
 
 class ExploreScreen extends Component {
-  render( { onPress, text } = this.props ) {
+  render({ onPress, text } = this.props) {
     return (
       <View style={styles.container}>
         <Text style={styles.caption}>Upcoming Events</Text>
@@ -114,18 +112,18 @@ class ExploreScreen extends Component {
           <Text style={styles.caption}>All Events</Text>
 
           <TouchableOpacity >
-          <View
-            style={styles.all}
-          >
-            <Image
-              style={styles.image2}
-              source={require("../assets/images/event4.png")}
-            />
-            <View style={styles.image2details}>
-              <Text>Kigali Festival</Text>
-              <Text>31st Oct</Text>
+            <View
+              style={styles.all}
+            >
+              <Image
+                style={styles.image2}
+                source={require("../assets/images/event4.png")}
+              />
+              <View style={styles.image2details}>
+                <Text>Kigali Festival</Text>
+                <Text>31st Oct</Text>
+              </View>
             </View>
-          </View>
           </TouchableOpacity>
 
           <View style={styles.all}>
