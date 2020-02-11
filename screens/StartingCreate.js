@@ -14,6 +14,9 @@ import {
 } from "react-native";
 import Colors from '../constants/Colors'
 
+import MainButton from "../components/Buttons/mainButton";
+
+
 const { width } = Dimensions.get("window");
 const screenheight = Dimensions.get("window").height;
 
@@ -31,7 +34,8 @@ class StartingCreate extends Component {
           Get Updated with all new events and be able to create your own
         </Text>
         <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("StartingSell")}>
-          <Text style={styles.text}>Skip</Text>
+          {/* <Text style={styles.text}>Skip</Text> */}
+          <MainButton text="Skip" />
         </TouchableOpacity>
       </View>
     );
@@ -51,6 +55,7 @@ const styles = StyleSheet.create({
     marginTop: 80,
     marginLeft: 115,
     fontSize: 18,
+    fontFamily: "font-semi",
     //fontWeight: "bold",
     color: "#ffff"
   },
@@ -64,6 +69,7 @@ const styles = StyleSheet.create({
     marginLeft: 60,
     marginRight: 60,
     fontSize: 12,
+    fontFamily: "font-semi",
     //fontWeight: "bold",
     color: "#ffff",
     textAlign: "center"
@@ -73,6 +79,15 @@ const styles = StyleSheet.create({
     position: "absolute",
     borderRadius: 5,
     marginTop: 480,
+    ...Platform.select({
+      ios: {
+        marginLeft: width / 6,
+      },
+      android: {
+        marginLeft: width / 5,
+      },
+    }),
+    // width: width-35,
     //marginLeft: 50,
     backgroundColor: '#e38629',
     paddingHorizontal: 40,
@@ -86,7 +101,7 @@ const styles = StyleSheet.create({
   text: {
     color: Colors.primary_white,
     textAlign: "justify",
-    fontFamily: "space-mono",
+    fontFamily: "font-semi",
     textAlign: "center"
   }
 });

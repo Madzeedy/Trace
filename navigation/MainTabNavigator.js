@@ -23,6 +23,10 @@ const HomeStack = createStackNavigator(
 
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
+  tabBarOptions: {
+    activeTintColor: Colors.traceButtonColor,
+
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -32,7 +36,9 @@ HomeStack.navigationOptions = {
           : 'md-home'
       }
     />
+
   ),
+
 };
 
 HomeStack.path = '';
@@ -46,6 +52,9 @@ const SearchStack = createStackNavigator(
 
 SearchStack.navigationOptions = {
   tabBarLabel: 'Search',
+  tabBarOptions: {
+    activeTintColor: Colors.traceButtonColor,
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-search' : 'md-search'} />
   ),
@@ -62,6 +71,9 @@ const TicketsStack = createStackNavigator(
 
 TicketsStack.navigationOptions = {
   tabBarLabel: "Tickets",
+  tabBarOptions: {
+    activeTintColor: Colors.traceButtonColor,
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -82,6 +94,9 @@ const ProfileStack = createStackNavigator(
 
 ProfileStack.navigationOptions = {
   tabBarLabel: 'Settings',
+  tabBarOptions: {
+    activeTintColor: Colors.traceButtonColor,
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
   ),

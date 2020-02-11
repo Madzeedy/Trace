@@ -91,6 +91,7 @@ export default StyleSheet.create({
         fontFamily: 'font-semi',
         color: Colors.secondary_gray,
         fontSize: 13,
+        paddingTop: 20,
 
     },
     description: {
@@ -104,9 +105,9 @@ export default StyleSheet.create({
         fontSize: 12,
     },
     icon: {
-        flexDirection: 'row',
+        // flexDirection: 'row',
         marginLeft: 'auto',
-        padding: 20,
+        paddingTop: 20,
 
     },
     backIcon: {

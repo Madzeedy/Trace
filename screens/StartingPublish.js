@@ -13,17 +13,11 @@ import {
   Dimensions
 } from "react-native";
 import Colors from '../constants/Colors'
+import MainButton from "../components/Buttons/mainButton";
 
 const { width } = Dimensions.get("window");
 const screenheight = Dimensions.get("window").height;
 
-const images = [
-  require("../assets/images/movie-hall-pic7.jpg"),
-  require("../assets/images/Location-Intelligence.jpg"),
-  require("../assets/images/wave-cinemas-gaur-central-mall-raj-nagar-ghaziabad-ghaziabad-multiplex-cinema-halls-3emuxsl.jpg"),
-  require("../assets/images/event2.jpg"), // Network image
-  require("../assets/images/tickets.jpeg") // Local image
-];
 class StartingPublish extends Component {
   render() {
     return (
@@ -37,7 +31,8 @@ class StartingPublish extends Component {
           Get Updated with all new events and be able to create your own
         </Text>
         <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("StartingCreate")}>
-          <Text style={styles.text}>Skip</Text>
+          {/* <Text style={styles.text}>Skip</Text> */}
+          <MainButton text="Skip" />
         </TouchableOpacity>
       </View>
     );
@@ -57,6 +52,7 @@ const styles = StyleSheet.create({
     marginTop: 80,
     marginLeft: 115,
     fontSize: 18,
+    fontFamily: "font-semi",
     //fontWeight: "bold",
     color: "#ffff"
   },
@@ -70,6 +66,7 @@ const styles = StyleSheet.create({
     marginLeft: 60,
     marginRight: 60,
     fontSize: 12,
+    fontFamily: "font-semi",
     //fontWeight: "bold",
     color: "#ffff",
     textAlign: "center"
@@ -79,9 +76,15 @@ const styles = StyleSheet.create({
     position: "absolute",
     borderRadius: 5,
     marginTop: 480,
-    marginLeft: 50,
+    ...Platform.select({
+      ios: {
+        marginLeft: width / 6,
+      },
+      android: {
+        marginLeft: width / 5,
+      },
+    }),
     // width: width-35,
-    backgroundColor: '#e38629',
     paddingHorizontal: 40,
     paddingVertical: 8,
     width: width - 100,
