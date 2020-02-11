@@ -35,9 +35,9 @@ class StartingPick extends Component {
         <Text style={styles.undertext}>
           Get Updated with all new events and be able to create your own
         </Text>
-        <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("Search3Screen")}>
+        <TouchableOpacity style={styles.button} >
           {/* <Text style={styles.text}>Skip</Text> */}
-          <MainButton text="Skip" />
+          <MainButton text="Skip" onPress={() => this.props.navigation.navigate("Search3Screen")}/>
         </TouchableOpacity>
         <Button title="Hey" style={styles.skip} />
       </View>
@@ -82,30 +82,29 @@ const styles = StyleSheet.create({
   button: {
     position: "absolute",
     borderRadius: 5,
-    marginTop: 480,
     ...Platform.select({
       ios: {
-        marginLeft: width / 6,
+        marginTop: width / 0.7
       },
       android: {
-        marginLeft: width / 5,
-      },
+        marginTop: width / 0.7
+      }
     }),
-    // width: width-35,
-    backgroundColor: '#e38629',
-    paddingHorizontal: 40,
-    paddingVertical: 8,
-    width: 220,
-    height: 30,
+    //marginTop: 460,
+    ...Platform.select({
+      ios: {
+        marginLeft: width / 6
+      },
+      android: {
+        marginLeft: width / 7.4
+      }
+    }),
+    //paddingHorizontal: 40,
+    //paddingVertical: 8,
+    width: width - 100,
+    //height: 30,
     alignItems: "center",
     justifyContent: "center"
-  },
-  // Button text
-  text: {
-    color: Colors.primary_white,
-    textAlign: "justify",
-    // fontFamily: "space-mono",
-    textAlign: "center"
   }
 });
 
