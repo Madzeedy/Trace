@@ -30,7 +30,8 @@ export default StyleSheet.create({
     },
     viewBack: {
         flexDirection: 'row',
-        paddingLeft: 15,
+        paddingLeft: 50,
+        paddingRight: 50,
     },
     viewPicker: {
         justifyContent: "center",
@@ -108,6 +109,7 @@ export default StyleSheet.create({
         // flexDirection: 'row',
         marginLeft: 'auto',
         paddingTop: 20,
+
 
     },
     backIcon: {
