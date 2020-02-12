@@ -14,18 +14,14 @@ import NotHeader from "../components/Header/NotHeader";
 import * as Icon from "@expo/vector-icons";
 import Colors from "../constants/Colors";
 import BackHeader from "../components/Header/BackHeader";
-
+import Inputs from "../components/Input";
 class Search3Screen extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <BackHeader headerName="Select A City" onPress={() => this.props.navigation.goBack()}/>
+        <BackHeader headerName="Select A City" onPress={() => this.props.navigation.goBack()} />
         <View style={styles.Up}>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter Your City Name"
-            placeholderTextColor="#707070"
-          />
+          <Inputs title="Enter your City..." />
           <Icon.Feather
             style={styles.searchIcon}
             name={"search"}
@@ -39,10 +35,10 @@ class Search3Screen extends Component {
             style={styles.locIcon}
             name={"my-location"}
             size={25}
-            color={Colors.traceTitle}
+            color={Colors.secondary_gray}
           />
           <Text style={styles.locTitle}>
-            Current Location
+            Add Current Location
           </Text>
         </View>
         <View style={styles.account}>
@@ -65,7 +61,7 @@ class Search3Screen extends Component {
           <Text style={styles.address}>Bujumbura</Text>
           <Text style={styles.City}>Burundi</Text>
         </View>
-        
+
       </ScrollView>
     );
   }
@@ -94,8 +90,8 @@ const styles = StyleSheet.create({
   title: {
     marginTop: -24,
     paddingBottom: 24,
-    fontSize: 16,
-    fontWeight: "bold",
+    fontSize: 13,
+    fontFamily: 'font-semi',
     color: "#232323"
   },
   input: {
@@ -108,30 +104,43 @@ const styles = StyleSheet.create({
     borderRadius: 5
   },
   searchIcon: {
-    position: "absolute",
-    marginLeft: 260,
-    marginTop: 33
+
+    marginLeft: 10,
+    paddingTop: 10,
+
   },
   location: {
     flexDirection: "row",
     marginLeft: 60,
-    paddingTop: 30
+    paddingTop: 25,
+
   },
   locTitle: {
     paddingLeft: 40,
-    fontSize: 16,
-    fontWeight: "bold",
-    color: "#707070"
+    fontSize: 13,
+    color: "#707070",
+    fontFamily: 'font-bold'
+  },
+  locIcon: {
+    paddingBottom: 5,
   },
   address: {
-    marginLeft: 6
+    marginLeft: 6,
+    fontSize: 12,
+    fontFamily: 'font-regular',
   },
   City: {
     color: Colors.secondary_gray,
-    fontSize: 12,
+    fontSize: 11,
     marginLeft: 6,
-    paddingBottom: 10
-  }
+    paddingBottom: 10,
+    fontFamily: 'font-regular',
+  },
+  Up: {
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: 'row'
+  },
 });
 
 export default Search3Screen;

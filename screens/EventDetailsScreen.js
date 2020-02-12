@@ -22,7 +22,8 @@ import MainButton from "../components/Buttons/mainButton";
 import Inputs from "../components/Input";
 //import TransInput from "../components/TextInputs/EditInput";
 import Colors from "../constants/Colors";
-import styles from '../components/genStyle/styles'
+import styles from '../components/genStyle/styles';
+import JobHeader from '../components/Header/jobHeader'
 // import FormPicker from '../components/select/selectPicker';
 const { width } = Dimensions.get("window");
 
@@ -34,8 +35,9 @@ class EventDetailsScreen extends Component {
 
 
             <ScrollView>
+                <JobHeader style={styles.header} onPress1={() => this.props.navigation.navigate("TabScreen")} />
                 <ImageBackground source={require("../assets/images/pexels-photo-707915.jpeg")} style={styles.backImage}>
-                    <TouchableOpacity style={styles.backIcon}>
+                    {/* <TouchableOpacity style={styles.backIcon}>
                         <Icon.Ionicons
                             name={Platform.os === 'ios' ? 'ios-arrow-round-back' : 'md-arrow-round-back'}
                             size={25}
@@ -46,7 +48,7 @@ class EventDetailsScreen extends Component {
                             name={Platform.os === 'ios' ? 'ios-share' : 'md-share'}
                             size={25}
                             color={Colors.primary_white} />
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                 </ImageBackground>
                 <View style={styles.container}>
 

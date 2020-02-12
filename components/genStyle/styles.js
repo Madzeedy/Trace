@@ -23,6 +23,7 @@ export default StyleSheet.create({
     viewDescription: {
         padding: 10,
         marginLeft: 40,
+
     },
     viewCalendar: {
         padding: 10,
@@ -39,10 +40,9 @@ export default StyleSheet.create({
         padding: 10,
     },
     viewFollow: {
-        backgroundColor: '#dddddd',
         marginLeft: 'auto',
         borderRadius: 5,
-        padding: 5,
+
         fontFamily: 'font-semi',
         color: Colors.secondary_gray,
         fontSize: 13,
@@ -61,6 +61,14 @@ export default StyleSheet.create({
         alignItems: "center",
         // width: screenWidth / 1.5,
 
+    },
+    viewPick: {
+        flexDirection: 'row',
+        paddingRight: 20,
+    },
+    viewSelect: {
+        marginLeft: "auto",
+        paddingTop: 28,
     },
     card: {
         width: screenWidth / 1.1,
@@ -99,6 +107,7 @@ export default StyleSheet.create({
         fontFamily: 'font-regular',
         color: Colors.secondary_gray,
         fontSize: 12,
+
     },
     calendar: {
         fontFamily: 'font-regular',
@@ -151,6 +160,18 @@ export default StyleSheet.create({
         borderRadius: 5,
         padding: 10,
     },
+    pick: {
+        fontSize: 14,
+        height: 10,
+        width: 50,
+        color: Colors.secondary_gray,
+        borderColor: "#d4d4d4",
+        borderWidth: 1,
+        borderRadius: 5,
+        padding: 10,
+
+
+    },
     image2: {
         marginLeft: 50,
         width: 77,
@@ -172,4 +193,7 @@ export default StyleSheet.create({
         fontFamily: 'font-semi',
         color: Colors.secondary_gray,
     },
+    header: {
+        position: "absolute",
+    }
 })
