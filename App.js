@@ -32,6 +32,8 @@ import NowScreen from './screens/NowScreen';
 import TicketsDetailsScreen from './screens/TicketsDetailsScreen';
 import ExploreScreen from './screens/ExploreScreen';
 import MyEventScreen from './screens/MyEventScreen';
+import EventDetailsScreen from './screens/EventDetailsScreen';
+import BookTickets from './screens/BookTicketScreen';
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
@@ -49,7 +51,7 @@ export default function App(props) {
       <View style={styles.container}>
         <GeneralStatusBarColor backgroundColor={Colors.primary_black} barStyle="light-content" />
         {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
-        <StartingPick />
+        <EventDetailsScreen />
       </View>
     );
   }
