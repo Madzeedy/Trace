@@ -45,6 +45,14 @@ const createAccount = createStackNavigator({
   Notification: NotificationScreen
 
 })
+
+const Attendees = createStackNavigator({
+
+  EventDetail: EventDetailsScreen,
+  BookTicket: BookTicketScreen
+
+})
+
 const MainScreen = createSwitchNavigator({
   Main: MainTabNavigator,
 
@@ -57,6 +65,9 @@ const SwitchNavigator = createSwitchNavigator(
     },
     TabScreen: {
       screen: MainScreen,
+    },
+    Attendees: {
+      screen: Attendees
     }
   }
 );
