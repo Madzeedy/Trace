@@ -122,8 +122,6 @@ export default StyleSheet.create({
     borderBottomColor: Colors.secondary_gray,
     opacity: 0.4
   },
-
-<<<<<<< HEAD
   profile: {
     width: 80,
     height: 80,
@@ -174,7 +172,6 @@ export default StyleSheet.create({
     color: Colors.secondary_gray
   }
 });
-=======
     },
     viewTitle: {
         padding: 10,
@@ -357,4 +354,3 @@ export default StyleSheet.create({
         position: "absolute",
     }
 })
->>>>>>> e3be5e50ca706be114f6ee8e56f405b035d26be4
