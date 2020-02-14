@@ -65,7 +65,7 @@ const Organizer = createStackNavigator({
   Profile1: Profile1Screen,
   ManageEvents: ManageEventsScreen,
   CreateEvent: CreateEventScreen,
-  Tickets: TicketsDetailsScreen,
+  Ticket: TicketsDetailsScreen,
   Welcome: Welcome
 })
 

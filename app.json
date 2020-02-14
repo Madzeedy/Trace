@@ -9,11 +9,15 @@
       "android",
       "web"
     ],
+    "android": {
+      "package": "com.LimitlessApps.Trace_Event",
+      "versionCode": 1
+    },
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/images/Splash_Screen.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
