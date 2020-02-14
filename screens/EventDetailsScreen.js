@@ -31,8 +31,6 @@ class EventDetailsScreen extends Component {
     render() {
 
         return (
-
-
             <ScrollView>
                 <JobHeader style={styles.header} onPress1={() => this.props.navigation.navigate("TabScreen")} />
                 <ImageBackground source={require("../assets/images/pexels-photo-707915.jpeg")} style={styles.backImage}>
