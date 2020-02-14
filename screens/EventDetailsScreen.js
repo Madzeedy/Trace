@@ -28,25 +28,13 @@ import JobHeader from '../components/Header/jobHeader'
 const { width } = Dimensions.get("window");
 
 class EventDetailsScreen extends Component {
-
     render() {
 
         return (
             <ScrollView>
                 <JobHeader style={styles.header} onPress1={() => this.props.navigation.navigate("TabScreen")} />
                 <ImageBackground source={require("../assets/images/pexels-photo-707915.jpeg")} style={styles.backImage}>
-                    {/* <TouchableOpacity style={styles.backIcon}>
-                        <Icon.Ionicons
-                            name={Platform.os === 'ios' ? 'ios-arrow-round-back' : 'md-arrow-round-back'}
-                            size={25}
-                            color={Colors.primary_white} />
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.icon}>
-                        <Icon.Ionicons
-                            name={Platform.os === 'ios' ? 'ios-share' : 'md-share'}
-                            size={25}
-                            color={Colors.primary_white} />
-                    </TouchableOpacity> */}
+                    
                 </ImageBackground>
                 <View style={styles.container}>
 
