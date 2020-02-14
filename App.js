@@ -36,8 +36,7 @@ import EventDetailsScreen from './screens/EventDetailsScreen';
 import BookTickets from './screens/BookTicketScreen';
 import PreferredScreen from './screens/PreferredScreen';
 import Welcome from './screens/WaitApproval';
-import PreferredScreen from './screens/PreferredScreen';
-import Welcome from './screens/WaitApproval';
+import CreateEventScreen from './screens/CreateEventScreen';
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
