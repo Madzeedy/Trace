@@ -62,14 +62,15 @@ const styles = StyleSheet.create({
         // lineHeight: 40,
         width: 243,
         borderColor: Colors.secondary_gray,
-        borderBottomWidth: 1.5,
+        borderBottomWidth: 1,
         fontSize: 14,
         color: Colors.secondary_gray,
     },
 
     title: {
-        fontSize: 14,
+        fontSize: 13,
         color: Colors.secondary_gray,
+        fontFamily: 'font-semi'
     },
 
 });
