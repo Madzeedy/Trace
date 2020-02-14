@@ -69,3 +69,10 @@ const styles = StyleSheet.create({
     width: "60%"
   }
 });
+
+
+
+                        <Text style={styles.subTitle}>VIP</Text>
+                        <Text style={styles.description}>Rwf 12,000</Text>
+                        <Text style={styles.description}>Sales end on nov 1,2019</Text>
+                        <Text style={styles.subTitle}>Total: </Text>
