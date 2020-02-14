@@ -30,7 +30,7 @@ export default StyleSheet.create({
     },
     viewBack: {
         flexDirection: 'row',
-        paddingLeft: 50,
+        paddingLeft: 10,
         paddingRight: 50,
     },
     viewPicker: {
