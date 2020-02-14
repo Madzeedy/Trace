@@ -33,23 +33,58 @@ export default class BookTickets extends Component {
                         <Text style={styles.eventTitle}>Kigali Festival</Text>
                         <Text style={styles.subTitle}>Fri, Nov 1,2019 8:00PM - 11:00 AM</Text>
                     </View>
+
                     <View style={styles.line}>
                     </View>
-                    <View style={styles.viewDescription}>
+                    <View style={styles.viewPick}>
+                        <View style={styles.viewDescription}>
 
-                        <Text style={styles.subTitle}>VIP</Text>
-                        <Text style={styles.description}>Rwf 12,000</Text>
-                        <Text style={styles.description}>Sales end on nov 1,2019</Text>
-                        <Text style={styles.subTitle}>Total: </Text>
+                            <Text style={styles.subTitle}>VIP</Text>
+                            <Text style={styles.description}>Rwf 12,000</Text>
+                            <Text style={styles.description}>Sales end on nov 1,2019</Text>
+                            <Text style={styles.subTitle}>Total: </Text>
+                        </View>
+                        <View style={styles.viewSelect}>
+
+                            <Picker
+                                style={styles.pick}
+                                selectedValue={this.state.language}
+                                onValueChange={(itemValue, itemIndex) => this.setState({ language: itemValue })}>
+                                <Picker.Item label="0" value="0" />
+                                <Picker.Item label="1" value="1" />
+                                <Picker.Item label="2" value="2" />
+                                <Picker.Item label="3" value="3" />
+                                <Picker.Item label="4" value="4" />
+                                <Picker.Item label="5" value="5" />
+
+                            </Picker>
+                        </View>
                     </View>
                     <View style={styles.line}>
                     </View>
-                    <View style={styles.viewDescription}>
+                    <View style={styles.viewPick}>
+                        <View style={styles.viewDescription}>
 
-                        <Text style={styles.subTitle}>Regular</Text>
-                        <Text style={styles.description}>Rwf 12,000</Text>
-                        <Text style={styles.description}>Sales end on nov 1,2019</Text>
-                        <Text style={styles.subTitle}>Total: </Text>
+                            <Text style={styles.subTitle}>Regular</Text>
+                            <Text style={styles.description}>Rwf 12,000</Text>
+                            <Text style={styles.description}>Sales end on nov 1,2019</Text>
+                            <Text style={styles.subTitle}>Total: </Text>
+                        </View>
+                        <View style={styles.viewSelect}>
+
+                            <Picker
+                                style={styles.pick}
+                                selectedValue={this.state.language}
+                                onValueChange={(itemValue, itemIndex) => this.setState({ language: itemValue })}>
+                                <Picker.Item label="0" value="0" />
+                                <Picker.Item label="1" value="1" />
+                                <Picker.Item label="2" value="2" />
+                                <Picker.Item label="3" value="3" />
+                                <Picker.Item label="4" value="4" />
+                                <Picker.Item label="5" value="5" />
+
+                            </Picker>
+                        </View>
                     </View>
                     <View style={styles.line}>
                     </View>
