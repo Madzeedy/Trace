@@ -172,7 +172,6 @@ export default StyleSheet.create({
     color: Colors.secondary_gray
   }
 });
-
     },
     viewTitle: {
         padding: 10,

@@ -34,8 +34,11 @@ import ExploreScreen from './screens/ExploreScreen';
 import MyEventScreen from './screens/MyEventScreen';
 import EventDetailsScreen from './screens/EventDetailsScreen';
 import BookTickets from './screens/BookTicketScreen';
+<<<<<<< HEAD
 import PreferredScreen from './screens/PreferredScreen';
 import Welcome from './screens/WaitApproval';
+=======
+>>>>>>> e3be5e50ca706be114f6ee8e56f405b035d26be4
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
