@@ -32,7 +32,7 @@ class EventDetailsScreen extends Component {
 
         return (
             <ScrollView>
-                <JobHeader style={styles.header} onPress1={() => this.props.navigation.navigate("TabScreen")} />
+                <JobHeader style={styles.header} onPress2={() => this.props.navigation.navigate("TabScreen")} />
                 <ImageBackground source={require("../assets/images/pexels-photo-707915.jpeg")} style={styles.backImage}>
                     
                 </ImageBackground>
@@ -103,7 +103,7 @@ class EventDetailsScreen extends Component {
 
                     </View>
                     <View style={styles.Form}>
-                        <MainButton text="Tickets" />
+                        <MainButton text="Tickets" onPress={() => this.props.navigation.navigate("BookTicket")}/>
                     </View>
                 </View>
                 <KeyboardAvoidingView

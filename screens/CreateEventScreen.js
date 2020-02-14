@@ -13,7 +13,7 @@ import TransInput from "../components/TextInputs/EditInput";
 import MainButton from "../components/Buttons/mainButton";
 import BackHeader from "../components/Header/BackHeader";
 import DateTimePicker from "react-native-modal-datetime-picker";
-import Colors from "../constants/Colors";
+import Colors from "../constants/Colors";;
 import styles from "../components/genStyle/styles";
 import SmallInput from "../components/TextInputs/SmallInput";
 const { width } = Dimensions.get("window");
@@ -88,7 +88,7 @@ export default class CreateEventScreen extends Component {
                 color: "#707070",
                 fontWeight: "bold"
               }}
-              onPress={() => this.props.navigation.navigate("Tickets")}
+              onPress={() => this.props.navigation.navigate("Ticket")}
             >
               Ticket
             </Text>
