@@ -38,13 +38,14 @@ class Search2Screen extends Component {
 
     return (
       <View style={styles.container}>
-        <BackHeader headerName="Time works for you" />
+        <BackHeader
+          headerName="Time works for you"
+          onPress={() => this.props.navigation.navigate("Search")}
+        />
         <View style={styles.time}>
           <TouchableOpacity
             style={styles.ticked}
-            onPress={() => {
-              this.Ticked();
-            }}
+            onPress={() => this.props.navigation.navigate("Preferred")}
           >
             <Text style={styles.timesA}>Any Time</Text>
             <View style={styles.radioButtons}>
@@ -58,7 +59,10 @@ class Search2Screen extends Component {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.ticked}>
+          <TouchableOpacity
+            style={styles.ticked}
+            onPress={() => this.props.navigation.navigate("Preferred")}
+          >
             <Text style={styles.timesA}>Today</Text>
             <View style={styles.radioButtons}>
               <RadioButton
@@ -71,7 +75,7 @@ class Search2Screen extends Component {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.ticked}>
+          <TouchableOpacity style={styles.ticked} onPress={() => this.props.navigation.navigate("Preferred")}>
             <Text style={styles.timesA}>Tomorrow</Text>
             <View style={styles.radioButtons}>
               <RadioButton
@@ -84,7 +88,10 @@ class Search2Screen extends Component {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.ticked}>
+          <TouchableOpacity
+            style={styles.ticked}
+            onPress={() => this.props.navigation.navigate("Preferred")}
+          >
             <Text style={styles.timesA}>This Weekend</Text>
             <View style={styles.radioButtons}>
               <RadioButton
@@ -97,7 +104,10 @@ class Search2Screen extends Component {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.ticked}>
+          <TouchableOpacity
+            style={styles.ticked}
+            onPress={() => this.props.navigation.navigate("Preferred")}
+          >
             <Text style={styles.timesA}>This Month</Text>
             <View style={styles.radioButtons}>
               <RadioButton
@@ -111,7 +121,10 @@ class Search2Screen extends Component {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.ticked}>
+          <TouchableOpacity
+            style={styles.ticked}
+            onPress={() => this.props.navigation.navigate("Preferred")}
+          >
             <Text style={styles.timesA}>Pick a Date</Text>
             <View style={styles.radioButtons}>
               <RadioButton

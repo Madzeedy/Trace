@@ -114,6 +114,7 @@ export default StyleSheet.create({
     paddingTop: 20
   },
   backIcon: {
+    position: "absolute",
     padding: 20
   },
   line: {

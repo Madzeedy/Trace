@@ -7,7 +7,8 @@ import {
   Picker,
   Image,
   Platform,
-  TextInput
+  TextInput,
+  TouchableOpacity
 } from "react-native";
 
 import * as Icon from "@expo/vector-icons";
@@ -25,16 +26,18 @@ class PaymentScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <BackHeader headerName="Select a City" />
+        <BackHeader headerName="Select a City" onPress={() => this.props.navigation.goBack()}/>
         <Text style={styles.title}>Pay With:</Text>
         <View style={styles.phoneNumber}>
           <Text style={styles.code}>+250</Text>
-          <TextInput style={styles.input}>Phone Number</TextInput>
+          <TextInput style={styles.input} placeholder="Phone Number" />
         </View>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate("Checkout")}>
         <View style={styles.paymentWays}>
             <Image style={styles.image} source={require('../assets/images/MoMoo.jpg')} />
             <Text style={styles.caption}> Mtn Mobile Money</Text>
         </View>
+        </TouchableOpacity>
 
         <View style={styles.paymentWays}>
             <Image style={styles.image} source={require('../assets/images/Tigo-Cash.png')} />

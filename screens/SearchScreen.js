@@ -29,7 +29,7 @@ class SearchScreen extends Component {
 
             <View style={styles.container}>
 
-                <NotHeader headerName="Search" />
+                <NotHeader headerName="Search" onPress={() => this.props.navigation.navigate("Search")}/>
 
                 <ScrollView>
 
@@ -37,21 +37,21 @@ class SearchScreen extends Component {
 
                         <Inputs title="Search for..." keyboardtype="numeric" />
                     </View>
-                    <TouchableOpacity style={styles.viewBack}>
+                    <TouchableOpacity style={styles.viewBack} onPress={() => this.props.navigation.navigate("Search2")}>
                         <Text style={styles.subTitle}>Date</Text>
                         <Icon.Feather style={styles.icon}
                             name={Platform.os === 'ios' ? 'chevron-right' : 'chevron-right'}
                             size={20}
                             color={Colors.secondary_gray} />
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.viewBack}>
+                    <TouchableOpacity style={styles.viewBack} onPress={() => this.props.navigation.navigate("Search2")}>
                         <Text style={styles.subTitle}>City</Text>
                         <Icon.Feather style={styles.icon}
                             name={Platform.os === 'ios' ? 'chevron-right' : 'chevron-right'}
                             size={20}
                             color={Colors.secondary_gray} />
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.viewBack}>
+                    <TouchableOpacity style={styles.viewBack} onPress={() => this.props.navigation.navigate("Search2")}>
                         <Text style={styles.subTitle}>Category</Text>
                         <Icon.Feather style={styles.icon}
                             name={Platform.os === 'ios' ? 'chevron-right' : 'chevron-right'}

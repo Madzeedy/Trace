@@ -32,7 +32,7 @@ class CheckoutScreen extends Component {
         return (
 
             <View style={{ flex: 1 }}>
-                <CloseHeader headerName="Checkout" onPress={() => alert('it should go back')} />
+                <CloseHeader headerName="Checkout" onPress={() => this.props.navigation.goBack()} />
 
                 <ScrollView>
 
@@ -80,7 +80,7 @@ class CheckoutScreen extends Component {
                          Up" onPress={() => this.props.navigation.navigate("TabScreen")} /> */}
                         </View>
                         <View style={styles.Form}>
-                            <MainButton text="Checkout" />
+                            <MainButton text="Pay Now" onPress={() => this.props.navigation.navigate("Payment")}/>
                         </View>
                     </View>
 
