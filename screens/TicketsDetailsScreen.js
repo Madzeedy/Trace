@@ -13,7 +13,8 @@ export default class TicketsDetailsScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            language: "", date: ''
+            language: "", date: '',
+            sales: ''
         };
     }
 
@@ -31,19 +32,29 @@ export default class TicketsDetailsScreen extends Component {
 
                         <TransInput title="Ticket Name" />
                         <TransInput title="Event Description" />
-                        <View style={styles.viewBack}>
-                            <SmallInput title="Sales starts" />
-                            <SmallInput title="Sales ends" />
+                        <View style={styles.Form}>
+
+                            <TransInput title="Quantity" keyboardtype="numeric" />
+                            <TransInput title="Amount" keyboardtype="numeric" />
+
+
                         </View>
+                        <Text style={styles.subTitle}>Sales Starts</Text>
+                        <View style={styles.viewBack}>
 
+                            <SmallInput title="Date" />
+                            <SmallInput title="Time" />
+
+                        </View>
+                        <Text style={styles.subTitle}>Sales Ends</Text>
+                        <View style={styles.viewBack}>
+
+                            <SmallInput title="Date" />
+                            <SmallInput title="Time" />
+
+                        </View>
                     </View>
-                    <View style={styles.Form}>
 
-                        <TransInput title="Quantity" keyboardtype="numeric" />
-                        <TransInput title="Amount" keyboardtype="numeric" />
-
-
-                    </View>
                     <View style={styles.Form}>
                         <Text style={styles.subTitle}>Tickets allowed per order</Text>
                         <View style={styles.viewBack}>
@@ -71,11 +82,11 @@ export default class TicketsDetailsScreen extends Component {
                     <View style={styles.viewPicker}>
                         <Picker
                             style={styles.picker}
-                            selectedValue={this.state.language}
-                            onValueChange={(itemValue, itemIndex) => this.setState({ language: itemValue })}>
+                            selectedValue={this.state.sales}
+                            onValueChange={(itemValue, itemIndex) => this.setState({ sales: itemValue })}>
                             <Picker.Item label="Sales channel" value="Sales channel" />
-                            <Picker.Item label="Female" value="Female" />
-                            <Picker.Item label="Male" value="Male" />
+                            <Picker.Item label="Agents" value="Agents" />
+                            <Picker.Item label="Wholesalers" value="Wholesalers" />
                         </Picker>
                         <MainButton text="Done" />
                     </View>

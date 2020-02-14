@@ -13,7 +13,8 @@ export default class CreateEventScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            language: "", date: ''
+            language: "", date: '',
+            category: '', event: '',
         };
     }
 
@@ -31,9 +32,22 @@ export default class CreateEventScreen extends Component {
 
                         <TransInput title="Title" />
                         <TransInput title="Event Description" />
-                        <TransInput title="Event starts" />
-                        <TransInput title="Event ends" />
                     </View>
+                    <Text style={styles.subEvent}>Event Starts</Text>
+                    <View style={styles.viewBack}>
+
+                        <SmallInput title="Date" />
+                        <SmallInput title="Time" />
+
+                    </View>
+                    <Text style={styles.subEvent}>Event Ends</Text>
+                    <View style={styles.viewBack}>
+
+                        <SmallInput title="Date" />
+                        <SmallInput title="Time" />
+
+                    </View>
+
                     <View style={styles.Form}>
 
                         <TransInput title="Tickets" />
@@ -50,29 +64,28 @@ export default class CreateEventScreen extends Component {
                             selectedValue={this.state.language}
                             onValueChange={(itemValue, itemIndex) => this.setState({ language: itemValue })}>
                             <Picker.Item label="Event type" value="Event type" />
-                            <Picker.Item label="Free" value="Free" />
-                            <Picker.Item label="Mtn Mobile Money" value="Mtn Mobile Money" />
-                            <Picker.Item label="Airtel Money" value="Airtel Money" />
-                            <Picker.Item label="Tigo Cash" value="Tigo Cash" />
-                            <Picker.Item label="Visa Card" value="Visa Card" />
+                            <Picker.Item label="Business" value="Business" />
+                            <Picker.Item label="Education" value="Education" />
+                            <Picker.Item label="Entertainment" value="Entertainment" />
+                            <Picker.Item label="Trade Shows" value="Trade Shows" />
 
                         </Picker>
                     </View>
-                    <View style={styles.viewPicker}>
+                    {/* <View style={styles.viewPicker}>
                         <Picker
                             style={styles.picker}
-                            selectedValue={this.state.language}
-                            onValueChange={(itemValue, itemIndex) => this.setState({ language: itemValue })}>
+                            selectedValue={this.state.category}
+                            onValueChange={(itemValue, itemIndex) => this.setState({ category: itemValue })}>
                             <Picker.Item label="Event Category" value="Event Category" />
                             <Picker.Item label="Female" value="Female" />
                             <Picker.Item label="Male" value="Male" />
                         </Picker>
-                    </View>
+                    </View> */}
                     <View style={styles.viewPicker}>
                         <Picker
                             style={styles.picker}
-                            selectedValue={this.state.language}
-                            onValueChange={(itemValue, itemIndex) => this.setState({ language: itemValue })}>
+                            selectedValue={this.state.event}
+                            onValueChange={(itemValue, itemIndex) => this.setState({ event: itemValue })}>
                             <Picker.Item label="Privacy" value="Privacy" />
                             <Picker.Item label="Private event" value="Private event" />
                             <Picker.Item label="Public event" value="Public event" />

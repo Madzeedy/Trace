@@ -38,6 +38,7 @@ export default StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         padding: 10,
+
     },
     viewFollow: {
         marginLeft: 'auto',
@@ -103,6 +104,13 @@ export default StyleSheet.create({
         paddingTop: 20,
 
     },
+    subEvent: {
+        fontFamily: 'font-semi',
+        color: Colors.secondary_gray,
+        fontSize: 13,
+        paddingTop: 20,
+        marginLeft: screenWidth / 6.5
+    },
     description: {
         fontFamily: 'font-regular',
         color: Colors.secondary_gray,
@@ -151,7 +159,7 @@ export default StyleSheet.create({
         alignItems: "center"
     },
     picker: {
-        fontSize: 14,
+        fontSize: 13,
         height: 35,
         width: 243,
         color: Colors.secondary_gray,
@@ -159,6 +167,7 @@ export default StyleSheet.create({
         borderWidth: 1,
         borderRadius: 5,
         padding: 10,
+        fontFamily: 'font-regular'
     },
     pick: {
         fontSize: 14,
