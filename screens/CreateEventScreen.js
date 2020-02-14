@@ -1,10 +1,19 @@
 import React, { Component } from "react";
-import { Picker, StyleSheet, Text, View, KeyboardAvoidingView, Dimensions, ScrollView } from "react-native";
+import {
+  Picker,
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  KeyboardAvoidingView,
+  Dimensions,
+  ScrollView
+} from "react-native";
 import TransInput from "../components/TextInputs/EditInput";
 import MainButton from "../components/Buttons/mainButton";
 import BackHeader from "../components/Header/BackHeader";
 import Colors from "../constants/Colors";
-import styles from "../components/genStyle/styles"
+import styles from "../components/genStyle/styles";
 import SmallInput from "../components/TextInputs/SmallInput";
 const { width } = Dimensions.get("window");
 
@@ -110,5 +119,5 @@ export default class CreateEventScreen extends Component {
     }
 }
 CreateEventScreen.navigationOptions = {
-    header: null,
+  header: null
 };
