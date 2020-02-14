@@ -12,6 +12,7 @@ import {
 import NotHeader from "../components/Header/NotHeader";
 import * as Icon from "@expo/vector-icons";
 import styles from "../components/genStyle/styles";
+import navigationOptions from '@react-navigation/stack'
 
 class MyEventScreen extends Component {
   render( { onPress, text } = this.props ) {

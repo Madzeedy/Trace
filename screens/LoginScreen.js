@@ -39,8 +39,6 @@ class LoginScreen extends Component {
               text="Login"
               onPress={() => this.props.navigation.navigate("TabScreen")}
             />
-            {/* <MainButton text="Sign
-                         Up" onPress={() => this.props.navigation.navigate("TabScreen")} /> */}
 
             <TouchableOpacity
               onPress={() => this.props.navigation.navigate("Signup")}

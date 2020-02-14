@@ -37,9 +37,8 @@ class StartingPick extends Component {
         </Text>
         <TouchableOpacity style={styles.button} >
           {/* <Text style={styles.text}>Skip</Text> */}
-          <MainButton text="Skip" onPress={() => this.props.navigation.navigate("Search3Screen")}/>
+          <MainButton text="Pick" onPress={() => this.props.navigation.navigate("Search3Screen")}/>
         </TouchableOpacity>
-        <Button title="Hey" style={styles.skip} />
       </View>
     );
   }

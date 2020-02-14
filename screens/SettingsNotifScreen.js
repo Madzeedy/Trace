@@ -31,7 +31,7 @@ class SettingsNotifScreen extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <NotHeader headerName="Home" />
+        <NotHeader headerName="Home" onPress={() => this.props.navigation.navigate("Notification")}/>
         <View style={styles.account}>
           <View style={styles.ticked}>
             <Text style={styles.title}>On</Text>

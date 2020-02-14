@@ -24,7 +24,7 @@ export default class BookTickets extends Component {
 
             <View style={{ flex: 1 }}>
 
-                <CloseHeader headerName="Ticket Details" onPress={() => alert('it should go back')} />
+                <CloseHeader headerName="Ticket Details" onPress={() => this.props.navigation.goBack()} />
 
                 <ScrollView>
 
@@ -103,7 +103,7 @@ export default class BookTickets extends Component {
                             <Picker.Item label="Private event" value="Private event" />
                             <Picker.Item label="Public event" value="Public event" />
                         </Picker> */}
-                        <MainButton text="Checkout" />
+                        <MainButton text="Checkout" onPress={() => this.props.navigation.navigate("Checkout")}/>
                     </View>
 
                 </ScrollView>
