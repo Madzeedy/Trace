@@ -9,6 +9,10 @@ import Colors from '../constants/Colors';
 import SearchScreen from '../screens/SearchScreen';
 import ProfileScreen from '../screens/ProfileScreen'
 import MyTicketScreen from '../screens/MyTicketScreen';
+import SettingsNotifScreen from '../screens/SettingsNotifScreen';
+import Profile1Screen from '../screens/Profile1Screen';
+import ManageEventsScreen from '../screens/ManageEventsScreen';
+import CreateEventScreen from '../screens/CreateEventScreen';
 const config = Platform.select({
   web: { headerMode: 'screen' },
   default: {},
@@ -32,8 +36,8 @@ HomeStack.navigationOptions = {
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-home${focused ? '' : '-outline'}`
-          : 'md-home'
+          ? `home${focused ? '' : '-outline'}`
+          : 'home'
       }
     />
 
@@ -56,7 +60,7 @@ SearchStack.navigationOptions = {
     activeTintColor: Colors.traceButtonColor,
   },
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-search' : 'md-search'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'search' : 'search'} />
   ),
 };
 
@@ -77,7 +81,7 @@ TicketsStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === "ios" ? "ios-share" : "md-share"}
+      name={Platform.OS === "ios" ? "ticket" : "ticket"}
     />
   )
 };
@@ -85,32 +89,50 @@ TicketsStack.navigationOptions = {
 TicketsStack.path = "";
 
 
-const ProfileStack = createStackNavigator(
+
+//Trial
+
+const Organizer = createStackNavigator({
+  Settings: Profile1Screen,
+  Profile1: Profile1Screen,
+  ManageEvents: ManageEventsScreen,
+  CreateEvent: CreateEventScreen
+})
+
+const SettingsStack = createStackNavigator(
   {
-    Profile: ProfileScreen,
+    Settings: Organizer,
   },
   config
 );
 
-ProfileStack.navigationOptions = {
+Organizer.navigationOptions = {
+  header: null,
+}
+
+SettingsStack.navigationOptions = {
   tabBarLabel: 'Settings',
   tabBarOptions: {
     activeTintColor: Colors.traceButtonColor,
   },
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'cogs' : 'cogs'} />
   ),
 };
 
-ProfileStack.path = '';
+SettingsStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   SearchStack,
   TicketsStack,
-  ProfileStack,
+  SettingsStack,
 
 });
 tabNavigator.path = '';
+
+tabNavigator.navigationOptions = {
+  header : null,
+}
 
 export default tabNavigator;

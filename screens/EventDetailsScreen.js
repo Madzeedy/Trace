@@ -1,54 +1,40 @@
 import * as WebBrowser from "expo-web-browser";
 import React, { Component } from "react";
 import {
-    Image,
-    Platform,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
-    TextInput,
-    Picker,
-    Button,
-    TouchableHighlight,
-    Dimensions,
-    KeyboardAvoidingView,
-    ImageBackground
+  Image,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  TextInput,
+  Picker,
+  Button,
+  TouchableHighlight,
+  Dimensions,
+  KeyboardAvoidingView,
+  ImageBackground
 } from "react-native";
-import * as Icon from '@expo/vector-icons'
+import * as Icon from "@expo/vector-icons";
 import { MonoText } from "../components/StyledText";
 import MainButton from "../components/Buttons/mainButton";
 import Inputs from "../components/Input";
-//import TransInput from "../components/TextInputs/EditInput";
+//import TransInput from "../components/TextInputs/EditInput";;
 import Colors from "../constants/Colors";
-import styles from '../components/genStyle/styles';
+import styles from "../components/genStyle/styles";
 import JobHeader from '../components/Header/jobHeader'
 // import FormPicker from '../components/select/selectPicker';
 const { width } = Dimensions.get("window");
 
 class EventDetailsScreen extends Component {
-
     render() {
 
         return (
-
-
             <ScrollView>
                 <JobHeader style={styles.header} onPress1={() => this.props.navigation.navigate("TabScreen")} />
                 <ImageBackground source={require("../assets/images/pexels-photo-707915.jpeg")} style={styles.backImage}>
-                    {/* <TouchableOpacity style={styles.backIcon}>
-                        <Icon.Ionicons
-                            name={Platform.os === 'ios' ? 'ios-arrow-round-back' : 'md-arrow-round-back'}
-                            size={25}
-                            color={Colors.primary_white} />
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.icon}>
-                        <Icon.Ionicons
-                            name={Platform.os === 'ios' ? 'ios-share' : 'md-share'}
-                            size={25}
-                            color={Colors.primary_white} />
-                    </TouchableOpacity> */}
+                    
                 </ImageBackground>
                 <View style={styles.container}>
 
@@ -131,7 +117,6 @@ class EventDetailsScreen extends Component {
     }
 }
 EventDetailsScreen.navigationOptions = {
-    header: null
+  header: null
 };
 export default EventDetailsScreen;
-

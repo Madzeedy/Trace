@@ -9,10 +9,14 @@ import {
   Platform,
   TextInput,
   Button,
-  TouchableOpacity
+  TouchableOpacity,
+  Dimensions
 } from "react-native";
-import Colors from '../constants/Colors'
+import Colors from "../constants/Colors";
 
+import MainButton from "../components/Buttons/mainButton";
+
+const { width } = Dimensions.get("window");
 
 class StartingBuy extends Component {
   render() {
@@ -26,8 +30,12 @@ class StartingBuy extends Component {
         <Text style={styles.undertext}>
           Get Updated with all new events and be able to create your own
         </Text>
-        <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("StartingPick")}>
-          <Text style={styles.text}>Skip</Text>
+        <TouchableOpacity style={styles.button}>
+          {/* <Text style={styles.text}>Skip</Text> */}
+          <MainButton
+            text="Skip"
+            onPress={() => this.props.navigation.navigate("StartingPick")}
+          />
         </TouchableOpacity>
       </View>
     );
@@ -59,8 +67,8 @@ const styles = StyleSheet.create({
     marginTop: 390,
     marginLeft: 60,
     marginRight: 60,
-    fontSize: 12,
-    //fontWeight: "bold",
+    fontSize: 14,
+    fontWeight: "bold",
     color: "#232323",
     textAlign: "center"
   },
@@ -68,14 +76,27 @@ const styles = StyleSheet.create({
   button: {
     position: "absolute",
     borderRadius: 5,
-    marginTop: 480,
-    marginLeft: 50,
-    // width: width-35,
-    backgroundColor: '#e38629',
-    paddingHorizontal: 40,
-    paddingVertical: 8,
-    width: 220,
-    height: 30,
+    ...Platform.select({
+      ios: {
+        marginTop: width / 0.7
+      },
+      android: {
+        marginTop: width / 0.7
+      }
+    }),
+    //marginTop: 460,
+    ...Platform.select({
+      ios: {
+        marginLeft: width / 6
+      },
+      android: {
+        marginLeft: width / 7.4
+      }
+    }),
+    //paddingHorizontal: 40,
+    //paddingVertical: 8,
+    width: width - 100,
+    //height: 30,
     alignItems: "center",
     justifyContent: "center"
   },

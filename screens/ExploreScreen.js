@@ -1,3 +1,4 @@
+//import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import React, { Component } from "react";
 import {
   View,
@@ -7,14 +8,15 @@ import {
   Image,
   TouchableOpacity
 } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
 import NotHeader from "../components/Header/NotHeader";
 import * as Icon from "@expo/vector-icons";
+//import { createMaterialTopTabNavigator } from "react-navigation-tabs";
+import navigation from "@react-navigation/material-top-tabs";
 import Colors from "../constants/Colors";
-//import styles from "../components/genStyle/styles"
+//import styles from "../components/genStyle/styles";
 
 class ExploreScreen extends Component {
-  render({ onPress, text } = this.props) {
+  render() {
     return (
       <View style={styles.container}>
         <Text style={styles.caption}>Upcoming Events</Text>
@@ -22,10 +24,14 @@ class ExploreScreen extends Component {
           <ScrollView horizontal={true} style={styles.scrollView}>
             <View style={styles.events}>
               <View style={styles.ImageCage}>
-                <Image
-                  style={styles.image}
-                  source={require("../assets/images/event1.jpg")}
-                />
+                <TouchableOpacity
+                  onPress={() => this.props.navigation.navigate("EventDetail")}
+                >
+                  <Image
+                    style={styles.image}
+                    source={require("../assets/images/event1.jpg")}
+                  />
+                </TouchableOpacity>
                 <View style={styles.EventDetails}>
                   <Text style={styles.name}>Kigali</Text>
                   <Icon.AntDesign
@@ -44,10 +50,12 @@ class ExploreScreen extends Component {
 
             <View style={styles.events}>
               <View style={styles.ImageCage}>
-                <Image
-                  style={styles.image}
-                  source={require("../assets/images/event2.jpg")}
-                />
+                <TouchableOpacity onPress={() => this.props.navigation.navigate("EventDetail")}>
+                  <Image
+                    style={styles.image}
+                    source={require("../assets/images/event2.jpg")}
+                  />
+                </TouchableOpacity>
                 <View style={styles.EventDetails}>
                   <Text style={styles.name}>Kigali</Text>
                   <Icon.AntDesign
@@ -66,10 +74,12 @@ class ExploreScreen extends Component {
 
             <View style={styles.events}>
               <View style={styles.ImageCage}>
-                <Image
-                  style={styles.image}
-                  source={require("../assets/images/event3.jpg")}
-                />
+                <TouchableOpacity onPress={() => this.props.navigation.navigate("EventDetail")}>
+                  <Image
+                    style={styles.image}
+                    source={require("../assets/images/event3.jpg")}
+                  />
+                </TouchableOpacity>
                 <View style={styles.EventDetails}>
                   <Text style={styles.name}>Kigali</Text>
                   <Icon.AntDesign
@@ -88,10 +98,12 @@ class ExploreScreen extends Component {
 
             <View style={styles.events}>
               <View style={styles.ImageCage}>
-                <Image
-                  style={styles.image}
-                  source={require("../assets/images/event4.png")}
-                />
+                <TouchableOpacity onPress={() => this.props.navigation.navigate("EventDetail")}>
+                  <Image
+                    style={styles.image}
+                    source={require("../assets/images/event4.png")}
+                  />
+                </TouchableOpacity>
                 <View style={styles.EventDetails}>
                   <Text style={styles.name}>Kigali</Text>
                   <Icon.AntDesign
@@ -111,10 +123,8 @@ class ExploreScreen extends Component {
 
           <Text style={styles.caption}>All Events</Text>
 
-          <TouchableOpacity >
-            <View
-              style={styles.all}
-            >
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("EventDetail")}>
+            <View style={styles.all}>
               <Image
                 style={styles.image2}
                 source={require("../assets/images/event4.png")}
@@ -126,38 +136,44 @@ class ExploreScreen extends Component {
             </View>
           </TouchableOpacity>
 
-          <View style={styles.all}>
-            <Image
-              style={styles.image2}
-              source={require("../assets/images/event3.jpg")}
-            />
-            <View style={styles.image2details}>
-              <Text>Kigali Festival</Text>
-              <Text>31st Oct</Text>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("EventDetail")}>
+            <View style={styles.all}>
+              <Image
+                style={styles.image2}
+                source={require("../assets/images/event3.jpg")}
+              />
+              <View style={styles.image2details}>
+                <Text>Kigali Festival</Text>
+                <Text>31st Oct</Text>
+              </View>
             </View>
-          </View>
+          </TouchableOpacity>
 
-          <View style={styles.all}>
-            <Image
-              style={styles.image2}
-              source={require("../assets/images/event2.jpg")}
-            />
-            <View style={styles.image2details}>
-              <Text>Kigali Festival</Text>
-              <Text>31st Oct</Text>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("EventDetail")}>
+            <View style={styles.all}>
+              <Image
+                style={styles.image2}
+                source={require("../assets/images/event2.jpg")}
+              />
+              <View style={styles.image2details}>
+                <Text>Kigali Festival</Text>
+                <Text>31st Oct</Text>
+              </View>
             </View>
-          </View>
+          </TouchableOpacity>
 
-          <View style={styles.all}>
-            <Image
-              style={styles.image2}
-              source={require("../assets/images/event1.jpg")}
-            />
-            <View style={styles.image2details}>
-              <Text>Kigali Festival</Text>
-              <Text>31st Oct</Text>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("EventDetail")}>
+            <View style={styles.all}>
+              <Image
+                style={styles.image2}
+                source={require("../assets/images/event1.jpg")}
+              />
+              <View style={styles.image2details}>
+                <Text>Kigali Festival</Text>
+                <Text>31st Oct</Text>
+              </View>
             </View>
-          </View>
+          </TouchableOpacity>
         </ScrollView>
       </View>
     );
@@ -223,25 +239,25 @@ const styles = StyleSheet.create({
     width: 216,
     marginLeft: 30,
     borderRadius: 5,
-    borderColor: '#fff',
-    backgroundColor: '#fff',
+    borderColor: "#fff",
+    backgroundColor: "#fff",
     ...Platform.select({
       ios: {
-        shadowColor: 'rgba(0,0,0,0.4)',
+        shadowColor: "rgba(0,0,0,0.4)",
         shadowOffset: {
           width: 0,
-          height: 2,
+          height: 2
         },
         shadowOpacity: 0.22,
-        shadowRadius: 5,
+        shadowRadius: 5
       },
       android: {
-        elevation: 1,
-      },
-    }),
+        elevation: 1
+      }
+    })
   },
   events: {
-    paddingBottom: 10,
+    paddingBottom: 10
   },
 
   ImageDetails: {
@@ -262,9 +278,8 @@ const styles = StyleSheet.create({
   },
   name: {
     marginLeft: 5,
-    fontFamily: 'font-semi',
-    fontSize: 12,
-
+    fontFamily: "font-semi",
+    fontSize: 12
   },
   image2: {
     marginLeft: 50,

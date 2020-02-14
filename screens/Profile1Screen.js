@@ -7,7 +7,8 @@ import {
   Picker,
   Image,
   Platform,
-  Button
+  Button,
+  TouchableOpacity
 } from "react-native";
 import NotHeader from "../components/Header/NotHeader";
 import * as Icon from "@expo/vector-icons";
@@ -17,80 +18,107 @@ class Profile1Screen extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <NotHeader headerName="Home" />
+        <NotHeader
+          headerName="Home"
+          onPress={() => this.props.navigation.navigate("Notification")}
+        />
         <View style={styles.account}>
           <Text style={styles.title}>Account:</Text>
-          <View style={styles.ticked}>
-            <Text style={styles.timesA}>Profile</Text>
-            <Icon.Feather
-              style={styles.Icons}
-              name={"chevron-right"}
-              size={25}
-              color={Colors.secondary_gray}
-            />
-          </View>
-          <View style={styles.ticked}>
-            <Text style={styles.timesA}>Push Notification</Text>
-            <Icon.Feather
-              style={styles.Icons}
-              name={"chevron-right"}
-              size={25}
-              color={Colors.secondary_gray}
-            />
-          </View>
-          <View style={styles.ticked}>
-            <Text style={styles.timesA}>Manage Events</Text>
-            <Icon.Feather
-              style={styles.Icons}
-              name={"chevron-right"}
-              size={25}
-              color={Colors.secondary_gray}
-            />
-          </View>
-        </View>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate("Profile")}
+          >
+            <View style={styles.ticked}>
+              <Text style={styles.timesA}>Profile</Text>
+              <Icon.Feather
+                style={styles.Icons}
+                name={"chevron-right"}
+                size={25}
+                color={Colors.secondary_gray}
+              />
+            </View>
+          </TouchableOpacity>
 
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate("SettingNotif")}
+          >
+            <View style={styles.ticked}>
+              <Text style={styles.timesA}>Push Notification</Text>
+              <Icon.Feather
+                style={styles.Icons}
+                name={"chevron-right"}
+                size={25}
+                color={Colors.secondary_gray}
+              />
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate("ManageEvents")}
+          >
+            <View style={styles.ticked}>
+              <Text style={styles.timesA}>Manage Events</Text>
+              <Icon.Feather
+                style={styles.Icons}
+                name={"chevron-right"}
+                size={25}
+                color={Colors.secondary_gray}
+              />
+            </View>
+          </TouchableOpacity>
+        </View>
 
         <View style={styles.border}></View>
 
-
         <View style={styles.account}>
           <Text style={styles.title}>About:</Text>
-          <View style={styles.ticked}>
-            <Text style={styles.timesA}>Rate Us</Text>
-            <Icon.Feather
-              style={styles.Icons}
-              name={"chevron-right"}
-              size={25}
-              color={Colors.secondary_gray}
-            />
-          </View>
-          <View style={styles.ticked}>
-            <Text style={styles.timesA}>Legal</Text>
-            <Icon.Feather
-              style={styles.Icons}
-              name={"chevron-right"}
-              size={25}
-              color={Colors.secondary_gray}
-            />
-          </View>
-          <View style={styles.ticked}>
-            <Text style={styles.timesA}>FeedBack</Text>
-            <Icon.Feather
-              style={styles.Icons}
-              name={"chevron-right"}
-              size={25}
-              color={Colors.secondary_gray}
-            />
-          </View>
-          <View style={styles.ticked}>
-            <Text style={styles.timesA}>Logout</Text>
-            <Icon.AntDesign
-              style={styles.Icons}
-              name={"logout"}
-              size={25}
-              color="#c91c10"
-            />
-          </View>
+
+          <TouchableOpacity>
+            <View style={styles.ticked}>
+              <Text style={styles.timesA}>Rate Us</Text>
+              <Icon.Feather
+                style={styles.Icons}
+                name={"chevron-right"}
+                size={25}
+                color={Colors.secondary_gray}
+              />
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <View style={styles.ticked}>
+              <Text style={styles.timesA}>Legal</Text>
+              <Icon.Feather
+                style={styles.Icons}
+                name={"chevron-right"}
+                size={25}
+                color={Colors.secondary_gray}
+              />
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <View style={styles.ticked}>
+              <Text style={styles.timesA}>FeedBack</Text>
+              <Icon.Feather
+                style={styles.Icons}
+                name={"chevron-right"}
+                size={25}
+                color={Colors.secondary_gray}
+              />
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <View style={styles.ticked}>
+              <Text style={styles.timesA}>Logout</Text>
+              <Icon.AntDesign
+                style={styles.Icons}
+                name={"logout"}
+                size={25}
+                color="#c91c10"
+              />
+            </View>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     );

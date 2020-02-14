@@ -90,7 +90,7 @@ export default class CreateEventScreen extends Component {
                             <Picker.Item label="Private event" value="Private event" />
                             <Picker.Item label="Public event" value="Public event" />
                         </Picker>
-                        <MainButton text="Create" />
+                        <MainButton text="Create" onPress={() => this.props.navigation.navigate("Welcome")}/>
                     </View>
 
 

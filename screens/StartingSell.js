@@ -10,32 +10,31 @@ import {
   TextInput,
   Button,
   TouchableOpacity,
-  Dimensions,
+  Dimensions
 } from "react-native";
 // import {LinearGradient} from 'react-native-linear-gradient'
-import Colors from '../constants/Colors'
+import Colors from "../constants/Colors";
 import MainButton from "../components/Buttons/mainButton";
 const { width } = Dimensions.get("window");
-const images = [
-  require("../assets/images/movie-hall-pic7.jpg"),
-  require("../assets/images/Location-Intelligence.jpg"),
-  require("../assets/images/wave-cinemas-gaur-central-mall-raj-nagar-ghaziabad-ghaziabad-multiplex-cinema-halls-3emuxsl.jpg"),
-  require("../assets/images/event2.jpg"), // Network image
-  require("../assets/images/tickets.jpeg") // Local image
-];
 
 class StartingSell extends Component {
-
   render() {
     return (
       <View style={styles.container} onLayout={this.onLayout}>
+        <Image
+          style={styles.image}
+          source={require("../assets/images/tickets.jpeg")}
+        />
         <Text style={styles.title}>Sell Tickets</Text>
         <Text style={styles.undertext}>
           Get Updated with all new events and be able to create your own
         </Text>
-        <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("StartingBuy")}>
+        <TouchableOpacity style={styles.button}>
           {/* <Text style={styles.text}>Skip</Text> */}
-          <MainButton text="Skip" />
+          <MainButton
+            text="Skip"
+            onPress={() => this.props.navigation.navigate("StartingBuy")}
+          />
         </TouchableOpacity>
       </View>
     );
@@ -48,8 +47,7 @@ StartingSell.navigationOptions = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    color: 'rgba(0,0,0,0.5),rgba(0,0,0,0.5)'
-
+    color: "rgba(0,0,0,0.5),rgba(0,0,0,0.5)"
   },
   title: {
     position: "absolute",
@@ -66,8 +64,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: "100%",
-
+    height: "100%"
   },
   undertext: {
     position: "absolute",
@@ -87,29 +84,30 @@ const styles = StyleSheet.create({
 
   button: {
     position: "absolute",
-    marginTop: 480,
-
+    borderRadius: 5,
     ...Platform.select({
       ios: {
-        marginLeft: width / 6,
+        marginTop: width / 0.7
       },
       android: {
-        marginLeft: width / 5,
-      },
+        marginTop: width / 0.7
+      }
     }),
-    // width: width-35,
-    paddingHorizontal: 40,
-    paddingVertical: 8,
-    width: 220,
-    height: 30,
+    //marginTop: 460,
+    ...Platform.select({
+      ios: {
+        marginLeft: width / 6
+      },
+      android: {
+        marginLeft: width / 7.4
+      }
+    }),
+    //paddingHorizontal: 40,
+    //paddingVertical: 8,
+    width: width - 100,
+    //height: 30,
     alignItems: "center",
     justifyContent: "center"
-  },
-  // Button text
-  text: {
-    color: Colors.primary_white,
-    textAlign: "justify",
-    textAlign: "center"
   }
 });
 

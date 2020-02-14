@@ -19,7 +19,9 @@ class Search3Screen extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <BackHeader headerName="Select A City" onPress={() => this.props.navigation.goBack()} />
+
+        <BackHeader headerName="Select A City" onPress={() => this.props.navigation.navigate("StartingBuy")}/>
+
         <View style={styles.Up}>
           <Inputs title="Enter your City..." />
           <Icon.Feather

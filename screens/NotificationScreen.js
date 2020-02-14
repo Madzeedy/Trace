@@ -19,7 +19,7 @@ class NotificationScreen extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <BackHeader headerName="Notification" onPress={() => this.props.navigation.goBack()}/>
+        <BackHeader headerName="Notification" onPress={() => this.props.navigation.navigate("TabScreen")}/>
         <View style={styles.all}>
           <Image
             style={styles.image2}
