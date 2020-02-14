@@ -31,8 +31,11 @@ export default class TicketsDetailsScreen extends Component {
 
                         <TransInput title="Ticket Name" />
                         <TransInput title="Event Description" />
-                        <TransInput title="Sales starts" />
-                        <TransInput title="Sales ends" />
+                        <View style={styles.viewBack}>
+                            <SmallInput title="Sales starts" />
+                            <SmallInput title="Sales ends" />
+                        </View>
+
                     </View>
                     <View style={styles.Form}>
 
