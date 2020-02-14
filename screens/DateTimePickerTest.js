@@ -21,12 +21,15 @@ export default class DateTimePickerTest extends Component {
     this.setState({
       isVisible: true
     })
+    console.log(this.state.isVisible)
   }
 
   hidePicker = () => {
     this.setState({
-      isVisible: false
+      isVisible: false,
+
     });
+
   };
 
   render() {
@@ -36,7 +39,7 @@ export default class DateTimePickerTest extends Component {
           style={styles.button}
           onPress={this.showPicker}
         >
-          <Text style={{marginLeft: 15, marginTop: 10}}>Show Picker</Text>
+          <Text style={{ marginLeft: 15, marginTop: 10 }}>Show Picker</Text>
         </TouchableOpacity>
         <DateTimePicker
           isVisible={this.state.isVisible}
