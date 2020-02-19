@@ -35,7 +35,7 @@ class SearchScreen extends Component {
 
                     <View style={styles.Form}>
 
-                        <Inputs title="Search for..." keyboardtype="numeric" />
+                        <Inputs title="Search for..." />
                     </View>
                     <TouchableOpacity style={styles.viewBack}>
                         <Text style={styles.subTitle}>Date</Text>
