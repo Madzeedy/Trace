@@ -35,7 +35,7 @@ class SearchScreen extends Component {
 
                     <View style={styles.Form}>
 
-                        <Inputs title="Search for..." keyboardtype="numeric" />
+                        <Inputs title="Search for..." />
                     </View>
                     <TouchableOpacity style={styles.viewBack} onPress={() => this.props.navigation.navigate("Search2")}>
                         <Text style={styles.subTitle}>Date</Text>
