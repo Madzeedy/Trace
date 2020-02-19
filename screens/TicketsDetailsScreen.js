@@ -14,6 +14,7 @@ import BackHeader from "../components/Header/BackHeader";
 import Colors from "../constants/Colors";
 import styles from "../components/genStyle/styles";
 import SmallInput from "../components/TextInputs/SmallInput";
+import moment from 'moment';
 import DateTimePicker from "react-native-modal-datetime-picker";
 const { width } = Dimensions.get("window");
 
@@ -22,15 +23,30 @@ export default class TicketsDetailsScreen extends Component {
     super(props);
     this.state = {
       isVisible: false,
+      visible: false,
       language: "",
       date: "",
-      sales: ""
+      sales: "",
+      ticket_name: '',
+      description: '',
+      start_date: '',
+      end_date: '',
+      quantity: '',
+      amount: ' ',
     };
   }
 
-  handlePicker = () => {
+  handlePicker = (datetime) => {
     this.setState({
-      isVisible: false
+      isVisible: false,
+      start_date: moment(datetime).format("YYYY-MM-DD      HH:mm"),
+
+    });
+  };
+  Picker = (datetime) => {
+    this.setState({
+      visible: false,
+      end_date: moment(datetime).format("YYYY-MM-DD         HH:mm")
     });
   };
 
@@ -38,14 +54,61 @@ export default class TicketsDetailsScreen extends Component {
     this.setState({
       isVisible: true
     });
-    console.log(this.state.isVisible);
+
+  };
+  show = () => {
+    this.setState({
+      visible: true
+    });
+
   };
 
   hidePicker = () => {
     this.setState({
       isVisible: false
     });
-  };
+
+  }
+  hide = () => {
+    this.setState({
+      visible: false
+    });
+
+  }
+
+  //Backend Post
+
+  Ticket = () => {
+    var data = {
+      ticket_name: this.state.ticket_name,
+      description: this.state.description,
+      start_date: this.state.start_date,
+      end_date: this.state.end_date,
+      quantity: this.state.quantity,
+      amount: this.state.amount,
+    }
+    fetch('https://tracevent.herokuapp.com/api/ticket', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+
+      },
+      body: JSON.stringify(data),
+
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        // console.log('response object:', responseJson)
+      })
+
+      .catch((error) => {
+        console.log(error)
+      });
+    // console.log(data)
+  }
+
+  // end 
 
   render() {
     return (
@@ -57,14 +120,22 @@ export default class TicketsDetailsScreen extends Component {
 
         <ScrollView>
           <View style={styles.Form}>
-            <TransInput title="Ticket Name" />
-            <TransInput title="Event Description" />
+            <TransInput title="Ticket Name" onChangeText={ticket_name => this.setState({ ticket_name: ticket_name })}
+              value={this.state.ticket_name} />
+            <TransInput title="Event Description" onChangeText={description => this.setState({ description: description })}
+              value={this.state.description} />
             <View style={styles.Form}>
-              <TransInput title="Quantity" keyboardtype="numeric" />
-              <TransInput title="Amount" keyboardtype="numeric" />
+              <TransInput title="Quantity" keyboardtype="numeric" onChangeText={quantity => this.setState({ quantity: quantity })}
+                value={this.state.quantity} />
+              <TransInput title="Amount" keyboardtype="numeric" onChangeText={amount => this.setState({ amount: amount })}
+                value={this.state.amount} />
             </View>
             <Text style={styles.subTitle}>Sales Starts</Text>
             <View style={styles.viewBac}>
+              <View style={styles.Form}>
+                <Text style={styles.time}>{this.state.start_date}</Text>
+              </View>
+
               <MainButton
                 text="Select Date&Time"
                 style={{ marginLeft: 40 }}
@@ -73,10 +144,14 @@ export default class TicketsDetailsScreen extends Component {
             </View>
             <Text style={styles.subTitle}>Sales Ends</Text>
             <View>
+              <View style={styles.Form}>
+                <Text style={styles.time}>{this.state.end_date}</Text>
+              </View>
               <MainButton
+
                 text="Select Date&Time"
                 style={{ marginLeft: 40 }}
-                onPress={this.showPicker}
+                onPress={this.show}
               />
             </View>
           </View>
@@ -116,7 +191,7 @@ export default class TicketsDetailsScreen extends Component {
               <Picker.Item label="Agents" value="Agents" />
               <Picker.Item label="Wholesalers" value="Wholesalers" />
             </Picker>
-            <MainButton text="Done" onPress={() => this.props.navigation.navigate("Welcome")}/>
+            <MainButton text="Done" onPress={this.Ticket} />
           </View>
         </ScrollView>
 
@@ -130,6 +205,15 @@ export default class TicketsDetailsScreen extends Component {
           onCancel={this.hidePicker}
           mode={"datetime"}
           is24Hour={true}
+
+        />
+        <DateTimePicker
+          isVisible={this.state.visible}
+          onConfirm={this.Picker}
+          onCancel={this.hide}
+          mode={"datetime"}
+          is24Hour={true}
+
         />
       </View>
     );
