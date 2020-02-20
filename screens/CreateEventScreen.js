@@ -25,6 +25,7 @@ export default class CreateEventScreen extends Component {
     super(props);
     this.state = {
       isVisible: false,
+      visible: false,
       language: "",
       date: "",
       category: "",
@@ -37,17 +38,35 @@ export default class CreateEventScreen extends Component {
       isVisible: false
     });
   };
+  Picker = () => {
+    this.setState({
+      visible: false
 
+    });
+  };
   showPicker = () => {
+    this.setState({
+      visible: true
+    });
+
+  };
+
+  show = () => {
     this.setState({
       isVisible: true
     });
-    console.log(this.state.isVisible);
+
   };
 
   hidePicker = () => {
     this.setState({
       isVisible: false
+    });
+  };
+
+  hide = () => {
+    this.setState({
+      visible: false
     });
   };
 
@@ -77,7 +96,7 @@ export default class CreateEventScreen extends Component {
             <MainButton
               text="Select Date&Time"
               style={{ marginLeft: -20 }}
-              onPress={this.showPicker}
+              onPress={this.show}
             />
           </View>
 
@@ -94,9 +113,7 @@ export default class CreateEventScreen extends Component {
             >
               Ticket
             </Text>
-            <View
-              style={{ borderWidth: 0.7, width: 240, marginBottom: 10 }}
-            ></View>
+            <View style={{ borderWidth: 0.7, width: 240, marginBottom: 10 }}></View>
             <TransInput style={{ paddingTop: 10 }} title="Venue" />
           </View>
 
@@ -167,6 +184,13 @@ export default class CreateEventScreen extends Component {
           isVisible={this.state.isVisible}
           onConfirm={this.handlePicker}
           onCancel={this.hidePicker}
+          mode={"datetime"}
+          is24Hour={true}
+        />
+        <DateTimePicker
+          isVisible={this.state.visible}
+          onConfirm={this.Picker}
+          onCancel={this.hide}
           mode={"datetime"}
           is24Hour={true}
         />
