@@ -209,5 +209,69 @@ export default StyleSheet.create({
     },
     header: {
         position: "absolute",
-    }
+    },
+    container: {
+        flex: 1,
+        // marginTop: -20,
+        backgroundColor: "#fff"
+        // paddingBottom: 40,
+      },
+      imgCage: {
+        height: 180,
+        width: 300,
+        marginTop: 10,
+        borderColor: '#707070',
+        borderWidth: 0.7,
+        borderRadius: 5,
+        alignSelf: "center",
+        ...Platform.select({
+          ios: {
+            shadowColor: "rgba(0,0,0,0.4)",
+            shadowOffset: {
+              width: 0,
+              height: 2
+            },
+            shadowOpacity: 0.22,
+            shadowRadius: 5
+          },
+          android: {
+            elevation: 3
+          }
+        })
+      },
+      upload: {
+        borderWidth: 0.7,
+        height: 40,
+        width: 140,
+        borderRadius: 5,
+        marginLeft: 80,
+        marginTop: 120,
+        flexDirection: "row",
+        backgroundColor: "#dae8de"
+      },
+      upIcon: {
+        marginTop: 7,
+        color: "#707070"
+      },
+      upText: {
+        marginTop: 9,
+        marginLeft: 10,
+        color: "#707070",
+        fontWeight: "bold"
+      },
+      reminder: {
+        flexDirection: "row",
+        //alignSelf: "center",
+        marginLeft: 60,
+        marginRight: 60,
+        marginTop: 10,
+        width: 180
+      },
+      remText: {
+        fontSize: 11,
+        textAlign: "center"
+      },remIcon: {
+        marginTop: 4,
+        fontFamily: "sans-serif-condensed"
+      }
 })
