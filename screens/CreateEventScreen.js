@@ -7,13 +7,15 @@ import {
   Button,
   KeyboardAvoidingView,
   Dimensions,
-  ScrollView
+  ScrollView,
+  TouchableOpacity
 } from "react-native";
+import * as Icon from "@expo/vector-icons";
 import TransInput from "../components/TextInputs/EditInput";
 import MainButton from "../components/Buttons/mainButton";
 import BackHeader from "../components/Header/BackHeader";
 import DateTimePicker from "react-native-modal-datetime-picker";
-import Colors from "../constants/Colors";;
+import Colors from "../constants/Colors";
 import styles from "../components/genStyle/styles";
 import SmallInput from "../components/TextInputs/SmallInput";
 const { width } = Dimensions.get("window");
@@ -92,8 +94,10 @@ export default class CreateEventScreen extends Component {
             >
               Ticket
             </Text>
-            <View style={{ borderWidth: 0.7, width: 240, marginBottom: 10 }}></View>
-            <TransInput style={{paddingTop: 10}} title="Venue" />
+            <View
+              style={{ borderWidth: 0.7, width: 240, marginBottom: 10 }}
+            ></View>
+            <TransInput style={{ paddingTop: 10 }} title="Venue" />
           </View>
 
           <View style={styles.viewPicker}>
@@ -111,7 +115,7 @@ export default class CreateEventScreen extends Component {
               <Picker.Item label="Trade Shows" value="Trade Shows" />
             </Picker>
           </View>
-          
+
           <View style={styles.viewPicker}>
             <Picker
               style={styles.picker}
@@ -124,6 +128,29 @@ export default class CreateEventScreen extends Component {
               <Picker.Item label="Private event" value="Private event" />
               <Picker.Item label="Public event" value="Public event" />
             </Picker>
+
+            {/* Image uploader */}
+            <View style={styles.containers}>
+              <View style={styles.imgCage}>
+                <TouchableOpacity style={styles.upload}>
+                  <Icon.MaterialIcons
+                    style={styles.upIcon}
+                    name={"add-a-photo"}
+                    size={22}
+                  />
+                  <Text style={styles.upText}>Event Image</Text>
+                </TouchableOpacity>
+              </View>
+
+              <View style={styles.reminder}>
+                <Icon.Entypo style={styles.remIcon} name={"info"} size={22} />
+                <Text style={styles.remText}>
+                  Maximum image size is 5mb. Recommended dimension: 1200x320
+                  pixels
+                </Text>
+              </View>
+            </View>
+              {/* End of img Uploader */}
             <MainButton
               text="Create"
               onPress={() => this.props.navigation.navigate("Welcome")}
