@@ -103,6 +103,12 @@ export default StyleSheet.create({
         paddingTop: 20,
 
     },
+    time: {
+        fontFamily: 'font-regular',
+        color: Colors.secondary_gray,
+        fontSize: 13,
+        paddingTop: 20,
+    },
     subEvent: {
         fontFamily: 'font-semi',
         color: Colors.secondary_gray,
