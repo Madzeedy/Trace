@@ -28,7 +28,6 @@ import RadioButtonComponent from './components/Buttons/RadioButton';
 import Search3Screen from './screens/Search3Screen';
 import TabTrial from './screens/TabTrial';
 import DateTimePickerTest from './screens/DateTimePickerTest';
-import NowScreen from './screens/NowScreen';
 import TicketsDetailsScreen from './screens/TicketsDetailsScreen';
 import ExploreScreen from './screens/ExploreScreen';
 import MyEventScreen from './screens/MyEventScreen';

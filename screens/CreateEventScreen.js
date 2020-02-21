@@ -196,5 +196,5 @@ export default class CreateEventScreen extends Component {
   }
 }
 CreateEventScreen.navigationOptions = {
-  header: null
+  headerShown: false,
 };

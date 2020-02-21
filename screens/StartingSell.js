@@ -41,7 +41,7 @@ class StartingSell extends Component {
   }
 }
 StartingSell.navigationOptions = {
-  header: null
+  headerShown: false,
 };
 
 const styles = StyleSheet.create({
