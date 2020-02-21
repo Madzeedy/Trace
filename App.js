@@ -37,6 +37,9 @@ import CreateEventScreen from './screens/CreateEventScreen';
 import PreferredScreen from './screens/PreferredScreen';
 import Welcome from './screens/WaitApproval';
 import IntExOne from './screens/IntegrationOne';
+import LoginScreen from './screens/LoginScreen';
+import SignUpScreen from './screens/SignUpScreen';
+import Memo from './screens/Memo';
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);

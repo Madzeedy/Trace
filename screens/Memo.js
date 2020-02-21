@@ -1,168 +1,39 @@
-import React, { Component } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  Picker,
-  Image,
-  Platform
-} from "react-native";
-import NotHeader from "../components/Header/NotHeader";
-import * as Icon from "@expo/vector-icons";
+import * as React from 'react';
+import { Button, Image, View } from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
+import Constants from 'expo-constants';
+import * as Permissions from 'expo-permissions';
 
-class Memo extends Component {
+export default class Memo extends React.Component {
+  state = {
+    image: null,
+  };
+
   render() {
+    let { image } = this.state;
+
     return (
-      <ScrollView style={styles.container}>
-        <NotHeader headerName="Home" />
-        <View style={styles.titles}>
-          <View style={styles.title}>
-            <Text style={styles.text1}>My Events</Text>
-          </View>
-          <View style={styles.title}>
-            <Text style={styles.text2}>Explore</Text>
-          </View>
-        </View>
-        <View style={styles.border}></View>
-        <Text style={styles.caption}>Upcoming Events</Text>
-        <ScrollView horizontal={true} style={styles.scrollView}>
-          <View style={styles.events}>
-            <View style={styles.ImageCage}>
-              <Image
-                style={styles.image}
-                source={require("../assets/images/event1.jpg")}
-              />
-              <View style={styles.EventDetails}>
-                <Text style={styles.name}>Kigali</Text>
-                <Icon.AntDesign
-                  style={styles.rightIcon1}
-                  name={"sharealt"}
-                  size={25}
-                />
-                <Icon.AntDesign
-                  style={styles.rightIcon2}
-                  name={"hearto"}
-                  size={25}
-                />
-              </View>
-            </View>
-          </View>
-
-          <View style={styles.events}>
-            <View style={styles.ImageCage}>
-              <Image
-                style={styles.image}
-                source={require("../assets/images/event2.jpg")}
-              />
-              <View style={styles.EventDetails}>
-                <Text style={styles.name}>Kigali</Text>
-                <Icon.AntDesign
-                  style={styles.rightIcon1}
-                  name={"sharealt"}
-                  size={25}
-                />
-                <Icon.AntDesign
-                  style={styles.rightIcon2}
-                  name={"hearto"}
-                  size={25}
-                />
-              </View>
-            </View>
-          </View>
-
-          <View style={styles.events}>
-            <View style={styles.ImageCage}>
-              <Image
-                style={styles.image}
-                source={require("../assets/images/event3.jpg")}
-              />
-              <View style={styles.EventDetails}>
-                <Text style={styles.name}>Kigali</Text>
-                <Icon.AntDesign
-                  style={styles.rightIcon1}
-                  name={"sharealt"}
-                  size={25}
-                />
-                <Icon.AntDesign
-                  style={styles.rightIcon2}
-                  name={"hearto"}
-                  size={25}
-                />
-              </View>
-            </View>
-          </View>
-
-          <View style={styles.events}>
-            <View style={styles.ImageCage}>
-              <Image
-                style={styles.image}
-                source={require("../assets/images/event4.png")}
-              />
-              <View style={styles.EventDetails}>
-                <Text style={styles.name}>Kigali</Text>
-                <Icon.AntDesign
-                  style={styles.rightIcon1}
-                  name={"sharealt"}
-                  size={25}
-                />
-                <Icon.AntDesign
-                  style={styles.rightIcon2}
-                  name={"hearto"}
-                  size={25}
-                />
-              </View>
-            </View>
-          </View>
-        </ScrollView>
-
-        <Text style={styles.caption}>All Events</Text>
-        <View style={styles.all}>
-          <Image
-            style={styles.image2}
-            source={require("../assets/images/event4.png")}
-          />
-          <View style={styles.image2details}>
-            <Text>Kigali Festival</Text>
-            <Text>31st Oct</Text>
-          </View>
-        </View>
-
-        <View style={styles.all}>
-          <Image
-            style={styles.image2}
-            source={require("../assets/images/event3.jpg")}
-          />
-          <View style={styles.image2details}>
-            <Text>Kigali Festival</Text>
-            <Text>31st Oct</Text>
-          </View>
-        </View>
-
-        <View style={styles.all}>
-          <Image
-            style={styles.image2}
-            source={require("../assets/images/event2.jpg")}
-          />
-          <View style={styles.image2details}>
-            <Text>Kigali Festival</Text>
-            <Text>31st Oct</Text>
-          </View>
-        </View>
-
-        <View style={styles.all}>
-          <Image
-            style={styles.image2}
-            source={require("../assets/images/event1.jpg")}
-          />
-          <View style={styles.image2details}>
-            <Text>Kigali Festival</Text>
-            <Text>31st Oct</Text>
-          </View>
-        </View>
-      </ScrollView>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Button
+          title="Pick an image from camera roll"
+          onPress={this._pickImage}
+        />
+      </View>
     );
   }
+
+  componentDidMount() {
+    this.getPermissionAsync();
+    console.log('hi');
+  }
+
+  getPermissionAsync = async () => {
+    if (Constants.platform.android) {
+      const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+      if (status !== 'granted') {
+        alert('Sorry, we need camera roll permissions to make this work!');
+      }
+    }
 }
 Memo.navigationOptions = {
   headerShown: false,
@@ -254,6 +125,19 @@ const styles = StyleSheet.create({
   all: {
     flexDirection: "row"
   }
-});
 
-export default Memo;
+  _pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1
+    });
+
+    console.log(result);
+
+    if (!result.cancelled) {
+      this.setState({ image: result.uri });
+    }
+  };
+}

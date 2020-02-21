@@ -10,6 +10,9 @@ import {
   ScrollView,
   TouchableOpacity
 } from "react-native";
+import * as ImagePicker from 'expo-image-picker';
+import Constants from 'expo-constants';
+import * as Permissions from 'expo-permissions';
 import * as Icon from "@expo/vector-icons";
 import TransInput from "../components/TextInputs/EditInput";
 import MainButton from "../components/Buttons/mainButton";
@@ -31,6 +34,7 @@ export default class CreateEventScreen extends Component {
       date: "",
       category: "",
       event: "",
+      image: null,
       title: '',
       description: '',
       start_date: '',
@@ -107,6 +111,7 @@ export default class CreateEventScreen extends Component {
   // end 
 
   render() {
+    let { image } = this.state;
     return (
       <View style={{ flex: 1 }}>
         <BackHeader
@@ -191,7 +196,7 @@ export default class CreateEventScreen extends Component {
 
             {/* Image uploader */}
             <View style={styles.containers}>
-              <TouchableOpacity style={styles.upload}>
+              <TouchableOpacity style={styles.upload} onPress={this._pickImage}>
                 <Icon.MaterialIcons
                   style={styles.upIcon}
                   name={"add-a-photo"}
@@ -238,6 +243,35 @@ export default class CreateEventScreen extends Component {
       </View>
     );
   }
+
+  componentDidMount() {
+    this.getPermissionAsync();
+    console.log('hi');
+  }
+
+  getPermissionAsync = async () => {
+    if (Constants.platform.android) {
+      const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+      if (status !== 'granted') {
+        alert('Sorry, we need camera roll permissions to make this work!');
+      }
+    }
+  }
+
+  _pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1
+    });
+
+    console.log(result);
+
+    if (!result.cancelled) {
+      this.setState({ image: result.uri });
+    }
+  };
 }
 CreateEventScreen.navigationOptions = {
   headerShown: false,
