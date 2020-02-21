@@ -1,20 +1,20 @@
 import * as WebBrowser from "expo-web-browser";
 import React, { Component } from "react";
 import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  TextInput,
-  Picker,
-  Button,
-  TouchableHighlight,
-  Dimensions,
-  KeyboardAvoidingView,
-  ImageBackground
+    Image,
+    Platform,
+    ScrollView,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
+    TextInput,
+    Picker,
+    Button,
+    TouchableHighlight,
+    Dimensions,
+    KeyboardAvoidingView,
+    ImageBackground
 } from "react-native";
 import * as Icon from "@expo/vector-icons";
 import { MonoText } from "../components/StyledText";
@@ -34,7 +34,7 @@ class EventDetailsScreen extends Component {
             <ScrollView>
                 <JobHeader style={styles.header} onPress2={() => this.props.navigation.navigate("TabScreen")} />
                 <ImageBackground source={require("../assets/images/pexels-photo-707915.jpeg")} style={styles.backImage}>
-                    
+
                 </ImageBackground>
                 <View style={styles.container}>
 
@@ -103,7 +103,7 @@ class EventDetailsScreen extends Component {
 
                     </View>
                     <View style={styles.Form}>
-                        <MainButton text="Tickets" onPress={() => this.props.navigation.navigate("BookTicket")}/>
+                        <MainButton text="Tickets" onPress={() => this.props.navigation.navigate("Signup")} />
                     </View>
                 </View>
                 <KeyboardAvoidingView
@@ -117,6 +117,6 @@ class EventDetailsScreen extends Component {
     }
 }
 EventDetailsScreen.navigationOptions = {
-  header: null
+    headerShown: false,
 };
 export default EventDetailsScreen;

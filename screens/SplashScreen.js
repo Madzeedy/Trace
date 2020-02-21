@@ -13,12 +13,12 @@ const { width } = Dimensions.get("window");
 
 export default class SplashScreen extends Component {
 
-  componentDidMount (){
+  componentDidMount() {
 
     setTimeout(() => {
 
-        this.props.navigation.navigate('StartingPublish')
-      
+      this.props.navigation.navigate('StartingPublish')
+
     }, 5000);
 
   }
@@ -26,31 +26,31 @@ export default class SplashScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-          <View style={styles.main}>
-            <Image
-              style={styles.image}
-              source={require("../assets/images/Splash_Screen.png")}
-            />
-            {/* <View style={styles.Text}>
+        <View style={styles.main}>
+          <Image
+            style={styles.image}
+            source={require("../assets/images/Splash_Screen.png")}
+          />
+          {/* <View style={styles.Text}>
               <Text style={styles.text}>
                 Powered by Limitless
               </Text>
             </View> */}
-          </View>
+        </View>
       </View>
     );
   }
 }
 
 SplashScreen.navigationOptions = {
-  header: null
+  headerShown: false,
 };
 
 const styles = StyleSheet.create({
-  
+
   image: {
-      width: width - 0,
-      height: 540,
+    width: width - 0,
+    height: 540,
 
   },
   text: {

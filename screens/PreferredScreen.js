@@ -18,7 +18,7 @@ class PreferredScreen extends Component {
   render({ onPress, text } = this.props) {
     return (
       <View style={{ flex: 1 }}>
-        <NotHeader headerName="Home" onPress={() => this.props.navigation.navigate("Notification")}/>
+        <NotHeader headerName="Home" onPress={() => this.props.navigation.navigate("Notification")} />
         <ScrollView>
           <Text style={styles.caption}>Your preferred</Text>
           <TouchableOpacity onPress={() => this.props.navigation.navigate("EventDetail")}>
@@ -117,7 +117,7 @@ class PreferredScreen extends Component {
   }
 }
 PreferredScreen.navigationOptions = {
-  header: null
+  headerShown: false,
 };
 
 export default PreferredScreen;

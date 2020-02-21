@@ -32,14 +32,14 @@ class StartingPublish extends Component {
         </Text>
         <TouchableOpacity style={styles.button} >
           {/* <Text style={styles.text}>Skip</Text> */}
-          <MainButton text="Skip" onPress={() => this.props.navigation.navigate("StartingCreate")}/>
+          <MainButton text="Skip" onPress={() => this.props.navigation.navigate("StartingCreate")} />
         </TouchableOpacity>
       </View>
     );
   }
 }
 StartingPublish.navigationOptions = {
-  header: null
+  headerShown: false,
 };
 
 const styles = StyleSheet.create({

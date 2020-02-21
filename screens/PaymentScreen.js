@@ -26,39 +26,39 @@ class PaymentScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <BackHeader headerName="Select a City" onPress={() => this.props.navigation.goBack()}/>
+        <BackHeader headerName="Select a City" onPress={() => this.props.navigation.goBack()} />
         <Text style={styles.title}>Pay With:</Text>
         <View style={styles.phoneNumber}>
           <Text style={styles.code}>+250</Text>
           <TextInput style={styles.input} placeholder="Phone Number" />
         </View>
         <TouchableOpacity onPress={() => this.props.navigation.navigate("Checkout")}>
-        <View style={styles.paymentWays}>
+          <View style={styles.paymentWays}>
             <Image style={styles.image} source={require('../assets/images/MoMoo.jpg')} />
             <Text style={styles.caption}> Mtn Mobile Money</Text>
-        </View>
+          </View>
         </TouchableOpacity>
 
         <View style={styles.paymentWays}>
-            <Image style={styles.image} source={require('../assets/images/Tigo-Cash.png')} />
-            <Text style={styles.caption}> Airtel Mobile Money</Text>
+          <Image style={styles.image} source={require('../assets/images/Tigo-Cash.png')} />
+          <Text style={styles.caption}> Airtel Mobile Money</Text>
         </View>
 
         <View style={styles.paymentWays}>
-            <Image style={styles.image} source={require('../assets/images/_Paypal.png')} />
-            <Text style={styles.caption}> Paypal Payment</Text>
+          <Image style={styles.image} source={require('../assets/images/_Paypal.png')} />
+          <Text style={styles.caption}> Paypal Payment</Text>
         </View>
 
         <View style={styles.paymentWays}>
-            <Image style={styles.image} source={require('../assets/images/visa.png')} />
-            <Text style={styles.caption}> Visa Card Payment</Text>
+          <Image style={styles.image} source={require('../assets/images/visa.png')} />
+          <Text style={styles.caption}> Visa Card Payment</Text>
         </View>
       </View>
     );
   }
 }
 PaymentScreen.navigationOptions = {
-  header: null
+  headerShown: false,
 };
 
 const styles = StyleSheet.create({
@@ -83,33 +83,33 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   input: {
-      marginBottom: 13,
-      paddingLeft: 10,
-      fontSize: 16,
-      color: '#707070',
-      fontWeight: "bold"
+    marginBottom: 13,
+    paddingLeft: 10,
+    fontSize: 16,
+    color: '#707070',
+    fontWeight: "bold"
   },
   code: {
-      marginLeft: 10,
-      fontWeight: "bold",
-      color: '#232323'
+    marginLeft: 10,
+    fontWeight: "bold",
+    color: '#232323'
   },
   paymentWays: {
-      height: 40,
-      width: 225,
-      borderWidth: 0.6,
-      marginLeft: 50,
-      marginRight: 50,
-      marginTop: 30,
-      borderRadius: 5,
-      borderColor: '#707070',
-      flexDirection: 'row'
+    height: 40,
+    width: 225,
+    borderWidth: 0.6,
+    marginLeft: 50,
+    marginRight: 50,
+    marginTop: 30,
+    borderRadius: 5,
+    borderColor: '#707070',
+    flexDirection: 'row'
   },
   image: {
-      //marginBottom: 80,
-      width: 60,
-      height: 40,
-      borderRadius: 5
+    //marginBottom: 80,
+    width: 60,
+    height: 40,
+    borderRadius: 5
   },
   caption: {
     color: '#707070',

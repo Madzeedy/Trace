@@ -35,14 +35,14 @@ class StartingCreate extends Component {
         </Text>
         <TouchableOpacity style={styles.button} >
           {/* <Text style={styles.text}>Skip</Text> */}
-          <MainButton text="Skip" onPress={() => this.props.navigation.navigate("StartingSell")}/>
+          <MainButton text="Skip" onPress={() => this.props.navigation.navigate("StartingSell")} />
         </TouchableOpacity>
       </View>
     );
   }
 }
 StartingCreate.navigationOptions = {
-  header: null
+  headerShown: false,
 };
 
 const styles = StyleSheet.create({

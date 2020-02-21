@@ -13,17 +13,65 @@ import {
     Button,
     TouchableHighlight,
     Dimensions,
-    KeyboardAvoidingView
+    KeyboardAvoidingView,
+    AsyncStorage
 } from "react-native";
 import { MonoText } from "../components/StyledText";
 import MainButton from "../components/Buttons/mainButton";
 import Inputs from "../components/Input";
+import { token } from "../constants/util";
 import TransInput from "../components/TextInputs/EditInput";
 import Colors from "../constants/Colors";
 // import FormPicker from '../components/select/selectPicker';
 const { width } = Dimensions.get("window");
 
 class SignUpScreen extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            first_name: '',
+            last_name: '',
+            email: '',
+            password: '',
+        };
+    }
+
+    SignUp = () => {
+
+        var data = {
+            first_name: this.state.first_name,
+            last_name: this.state.last_name,
+            email: this.state.email,
+            password: this.state.password,
+            phone: this.state.phone,
+        }
+        fetch('https://tracevent.herokuapp.com/api/signup', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+
+        })
+            .then((response) => response.json())
+            .then(async (response) => {
+
+                // console.log(response)
+                await AsyncStorage.setItem(token, response.token);
+                if (response.token !== null) {
+                    this.props.navigation.navigate('TabScreen');
+                }
+                else {
+                    alert('Fill all the field')
+                }
+
+            }).catch((error) => {
+                console.log(error)
+            });
+
+
+    }
 
     render() {
 
@@ -42,12 +90,16 @@ class SignUpScreen extends Component {
 
                     <View style={styles.Form}>
 
-                        <TransInput title="Firstname" />
-                        <TransInput title="Lastname" />
-                        <TransInput title="Email Address" />
-                        <TransInput title="Password" />
+                        <TransInput title="Firstname" onChangeText={first_name => this.setState({ first_name: first_name })}
+                            value={this.state.first_name} />
+                        <TransInput title="Lastname" onChangeText={last_name => this.setState({ last_name: last_name })}
+                            value={this.state.last_name} />
+                        <TransInput type="email" title="Email" onChangeText={email => this.setState({ email: email })}
+                            value={this.state.email} />
+                        <TransInput type="password" title="password" secureTextEntry onChangeText={password => this.setState({ password: password })}
+                            value={this.state.password} />
 
-                        <MainButton text="Get Started" onPress={() => this.props.navigation.navigate("TabScreen")} />
+                        <MainButton text="Get Started" onPress={this.SignUp} />
                         <TouchableOpacity>
 
                             <Text style={styles.ptext}>Already an Account? <Text style={styles.span}>Login</Text> </Text>

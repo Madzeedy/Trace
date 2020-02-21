@@ -142,7 +142,7 @@ class Search2Screen extends Component {
   }
 }
 Search2Screen.navigationOptions = {
-  header: null
+  headerShown: false,
 };
 
 const styles = StyleSheet.create({

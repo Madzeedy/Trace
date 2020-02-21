@@ -103,7 +103,7 @@ export default class BookTickets extends Component {
                             <Picker.Item label="Private event" value="Private event" />
                             <Picker.Item label="Public event" value="Public event" />
                         </Picker> */}
-                        <MainButton text="Checkout" onPress={() => this.props.navigation.navigate("Checkout")}/>
+                        <MainButton text="Checkout" onPress={() => this.props.navigation.navigate("Checkout")} />
                     </View>
 
                 </ScrollView>
@@ -118,5 +118,5 @@ export default class BookTickets extends Component {
     }
 }
 BookTickets.navigationOptions = {
-    header: null,
+    headerShown: false,
 };

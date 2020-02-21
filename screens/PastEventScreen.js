@@ -34,7 +34,7 @@ class PastEventScreen extends Component {
 }
 
 PastEventScreen.navigationOptions = {
-  header: null
+  headerShown: false,
 };
 
 const styles = StyleSheet.create({

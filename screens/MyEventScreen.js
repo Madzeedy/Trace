@@ -15,7 +15,7 @@ import styles from "../components/genStyle/styles";
 import navigationOptions from '@react-navigation/stack'
 
 class MyEventScreen extends Component {
-  render( { onPress, text } = this.props ) {
+  render({ onPress, text } = this.props) {
     return (
       <ScrollView style={{ flex: 1 }}>
         {/* <NotHeader headerName="Home" /> */}
@@ -73,7 +73,7 @@ class MyEventScreen extends Component {
   }
 }
 MyEventScreen.navigationOptions = {
-  header: null
+  headerShown: false,
 };
 
 export default MyEventScreen;

@@ -26,7 +26,7 @@ class ProfileScreen extends Component {
 
             <View style={styles.container}>
 
-                <Header headerName="profile" onPress={() => this.props.navigation.navigate("Profile1")}/>
+                <Header headerName="profile" onPress={() => this.props.navigation.navigate("Profile1")} />
 
                 <ScrollView>
 
@@ -57,7 +57,7 @@ class ProfileScreen extends Component {
     }
 }
 ProfileScreen.navigationOptions = {
-    header: null,
+    headerShown: false,
 };
 export default ProfileScreen;
 const styles = StyleSheet.create({

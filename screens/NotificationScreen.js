@@ -19,7 +19,7 @@ class NotificationScreen extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <BackHeader headerName="Notification" onPress={() => this.props.navigation.navigate("TabScreen")}/>
+        <BackHeader headerName="Notification" onPress={() => this.props.navigation.navigate("TabScreen")} />
         <View style={styles.all}>
           <Image
             style={styles.image2}
@@ -35,7 +35,7 @@ class NotificationScreen extends Component {
   }
 }
 NotificationScreen.navigationOptions = {
-  header: null
+  headerShown: false,
 };
 
 const styles = StyleSheet.create({
@@ -59,11 +59,11 @@ const styles = StyleSheet.create({
     width: 135
   },
   title: {
-      fontSize: 12.5
+    fontSize: 12.5
   },
   details: {
-      color: "#707070",
-      fontSize: 11
+    color: "#707070",
+    fontSize: 11
   }
 });
 
