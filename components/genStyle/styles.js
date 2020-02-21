@@ -216,36 +216,13 @@ export default StyleSheet.create({
         backgroundColor: "#fff"
         // paddingBottom: 40,
       },
-      imgCage: {
-        height: 180,
-        width: 300,
-        marginTop: 10,
-        borderColor: '#707070',
-        borderWidth: 0.7,
-        borderRadius: 5,
-        alignSelf: "center",
-        ...Platform.select({
-          ios: {
-            shadowColor: "rgba(0,0,0,0.4)",
-            shadowOffset: {
-              width: 0,
-              height: 2
-            },
-            shadowOpacity: 0.22,
-            shadowRadius: 5
-          },
-          android: {
-            elevation: 3
-          }
-        })
-      },
       upload: {
         borderWidth: 0.7,
         height: 40,
         width: 140,
         borderRadius: 5,
         marginLeft: 80,
-        marginTop: 120,
+        marginTop: 30,
         flexDirection: "row",
         backgroundColor: "#dae8de"
       },
