@@ -16,10 +16,11 @@ import MainButton from "../components/Buttons/mainButton";
 import BackHeader from "../components/Header/BackHeader";
 import DateTimePicker from "react-native-modal-datetime-picker";
 import Colors from "../constants/Colors";
+import moment from 'moment';
 import styles from "../components/genStyle/styles";
 import SmallInput from "../components/TextInputs/SmallInput";
 const { width } = Dimensions.get("window");
-
+moment
 export default class CreateEventScreen extends Component {
   constructor(props) {
     super(props);
@@ -29,13 +30,19 @@ export default class CreateEventScreen extends Component {
       language: "",
       date: "",
       category: "",
-      event: ""
+      event: "",
+      title: '',
+      description: '',
+      start_date: '',
+      venue: '',
     };
   }
 
-  handlePicker = () => {
+  handlePicker = (datetime) => {
     this.setState({
-      isVisible: false
+      isVisible: false,
+      start_date: moment(datetime).format("YYYY-MM-DD      HH:mm"),
+
     });
   };
   Picker = () => {
@@ -66,6 +73,38 @@ export default class CreateEventScreen extends Component {
       visible: false
     });
   };
+  //Backend Post
+
+  Event = () => {
+    var data = {
+      title: this.state.title,
+      description: this.state.description,
+      start_date: this.state.start_date,
+      venue: this.state.venue,
+
+    }
+    fetch('https://tracevent.herokuapp.com/api/event', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+
+      },
+      body: JSON.stringify(data),
+
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        console.log('response object:', responseJson)
+      })
+
+      .catch((error) => {
+        console.log(error)
+      });
+    console.log(data)
+  }
+
+  // end 
 
   render() {
     return (
@@ -77,11 +116,16 @@ export default class CreateEventScreen extends Component {
 
         <ScrollView>
           <View style={styles.Form}>
-            <TransInput title="Title" />
-            <TransInput title="Event Description" />
+            <TransInput title="Title" onChangeText={title => this.setState({ title: title })}
+              value={this.state.title} />
+            <TransInput title="Event Description" onChangeText={description => this.setState({ description: description })}
+              value={this.state.description} />
           </View>
           <Text style={styles.subEvent}>Event Starts</Text>
-          <View style={styles.viewBack}>
+          <View style={styles.viewBac}>
+            <View style={styles.Form}>
+              <Text style={styles.time}>{this.state.start_date}</Text>
+            </View>
             <MainButton
               text="Select Date&Time"
               style={{ marginLeft: -20 }}
@@ -108,7 +152,7 @@ export default class CreateEventScreen extends Component {
               }}
               onPress={() => this.props.navigation.navigate("Ticket")}
             >
-              Ticket
+
             </Text>
             <View
               style={{ borderWidth: 0.7, width: 240, marginBottom: 10 }}
@@ -167,7 +211,7 @@ export default class CreateEventScreen extends Component {
             {/* End of img Uploader */}
             <MainButton
               text="Create"
-              onPress={() => this.props.navigation.navigate("Welcome")}
+              onPress={this.Event}
             />
           </View>
         </ScrollView>
