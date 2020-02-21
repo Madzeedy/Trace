@@ -28,7 +28,6 @@ import RadioButtonComponent from './components/Buttons/RadioButton';
 import Search3Screen from './screens/Search3Screen';
 import TabTrial from './screens/TabTrial';
 import DateTimePickerTest from './screens/DateTimePickerTest';
-import NowScreen from './screens/NowScreen';
 import TicketsDetailsScreen from './screens/TicketsDetailsScreen';
 import ExploreScreen from './screens/ExploreScreen';
 import MyEventScreen from './screens/MyEventScreen';
@@ -38,6 +37,8 @@ import CreateEventScreen from './screens/CreateEventScreen';
 import PreferredScreen from './screens/PreferredScreen';
 import Welcome from './screens/WaitApproval';
 import IntExOne from './screens/IntegrationOne';
+import LoginScreen from './screens/LoginScreen';
+import SignUpScreen from './screens/SignUpScreen';
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
@@ -55,7 +56,7 @@ export default function App(props) {
       <View style={styles.container}>
         <GeneralStatusBarColor backgroundColor={Colors.primary_black} barStyle="light-content" />
         {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
-        <IntExOne />
+        <SignUpScreen />
       </View>
     );
   }

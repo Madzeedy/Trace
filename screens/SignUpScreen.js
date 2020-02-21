@@ -45,7 +45,7 @@ class SignUpScreen extends Component {
                         <TransInput title="Firstname" />
                         <TransInput title="Lastname" />
                         <TransInput title="Email Address" />
-                        <TransInput title="Phone Number" keyboardtype="numeric" />
+                        <TransInput title="Password" />
 
                         <MainButton text="Get Started" onPress={() => this.props.navigation.navigate("TabScreen")} />
                         <TouchableOpacity>

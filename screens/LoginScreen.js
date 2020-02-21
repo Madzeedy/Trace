@@ -33,7 +33,8 @@ class LoginScreen extends Component {
           </View>
 
           <View style={styles.Form}>
-            <TransInput title="Phone Number" keyboardtype="numeric" />
+            <TransInput title="Email" />
+            <TransInput title="Password" />
 
             <MainButton
               text="Login"
