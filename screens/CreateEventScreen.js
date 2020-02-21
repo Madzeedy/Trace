@@ -41,21 +41,18 @@ export default class CreateEventScreen extends Component {
   Picker = () => {
     this.setState({
       visible: false
-
     });
   };
   showPicker = () => {
     this.setState({
       visible: true
     });
-
   };
 
   show = () => {
     this.setState({
       isVisible: true
     });
-
   };
 
   hidePicker = () => {
@@ -113,7 +110,9 @@ export default class CreateEventScreen extends Component {
             >
               Ticket
             </Text>
-            <View style={{ borderWidth: 0.7, width: 240, marginBottom: 10 }}></View>
+            <View
+              style={{ borderWidth: 0.7, width: 240, marginBottom: 10 }}
+            ></View>
             <TransInput style={{ paddingTop: 10 }} title="Venue" />
           </View>
 
@@ -148,16 +147,14 @@ export default class CreateEventScreen extends Component {
 
             {/* Image uploader */}
             <View style={styles.containers}>
-              <View style={styles.imgCage}>
-                <TouchableOpacity style={styles.upload}>
-                  <Icon.MaterialIcons
-                    style={styles.upIcon}
-                    name={"add-a-photo"}
-                    size={22}
-                  />
-                  <Text style={styles.upText}>Event Image</Text>
-                </TouchableOpacity>
-              </View>
+              <TouchableOpacity style={styles.upload}>
+                <Icon.MaterialIcons
+                  style={styles.upIcon}
+                  name={"add-a-photo"}
+                  size={22}
+                />
+                <Text style={styles.upText}>Event Image</Text>
+              </TouchableOpacity>
 
               <View style={styles.reminder}>
                 <Icon.Entypo style={styles.remIcon} name={"info"} size={22} />
@@ -167,7 +164,7 @@ export default class CreateEventScreen extends Component {
                 </Text>
               </View>
             </View>
-              {/* End of img Uploader */}
+            {/* End of img Uploader */}
             <MainButton
               text="Create"
               onPress={() => this.props.navigation.navigate("Welcome")}
