@@ -40,22 +40,23 @@ export default class IntExOne extends Component {
     let collection={}
     collection.name=this.state.name,
     collection.email=this.state.email,
-    console.warn(collection)
+    console.warn(collection);
+
+    var url = "own-url";
+  
+
+    fetch(url, {
+      method: "POST", // or 'PUT'
+      body: JSON.stringify(collection),
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    }).then(res => res.json())
+    .catch(error => console.error('Error:', error))
+    .then(response => console.log('Success:', response));
   }
 
-  componentDidMount() {
-    return fetch("http://dummy.restapiexample.com/api/v1/employees")
-      .then(response => response.json())
-      .then(responseJson => {
-        this.setState({
-          isLoading: false,
-          data: responseJson.data[0]
-        });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
+  
 
   render() {
     return (
