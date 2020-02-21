@@ -23,7 +23,7 @@ class SettingsNotifScreen extends Component {
       checkTwo: false
     };
   }
-  Switch_Test = (key,value) => {
+  Switch_Test = (key, value) => {
     console.log(value)
     this.setState(prevState => ({ [key]: !prevState[key] }));
   };
@@ -31,14 +31,14 @@ class SettingsNotifScreen extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <NotHeader headerName="Home" onPress={() => this.props.navigation.navigate("Notification")}/>
+        <NotHeader headerName="Home" onPress={() => this.props.navigation.navigate("Notification")} />
         <View style={styles.account}>
           <View style={styles.ticked}>
             <Text style={styles.title}>On</Text>
             <Switch
               style={styles.switch}
               value={this.state.check}
-              onChange={(sw)=>this.Switch_Test('check',sw)}
+              onChange={(sw) => this.Switch_Test('check', sw)}
             />
           </View>
 
@@ -52,7 +52,7 @@ class SettingsNotifScreen extends Component {
             <Switch
               style={styles.switch2}
               value={this.state.checkOne}
-              onChange={(sw)=>this.Switch_Test('checkOne',sw)}
+              onChange={(sw) => this.Switch_Test('checkOne', sw)}
             />
           </View>
 
@@ -67,7 +67,7 @@ class SettingsNotifScreen extends Component {
               style={styles.switch3}
               color="#000"
               value={this.state.checkTwo}
-              onChange={(sw)=>this.Switch_Test('checkTwo',sw)}
+              onChange={(sw) => this.Switch_Test('checkTwo', sw)}
             />
           </View>
         </View>
@@ -76,7 +76,7 @@ class SettingsNotifScreen extends Component {
   }
 }
 SettingsNotifScreen.navigationOptions = {
-  header: null
+  headerShown: false,
 };
 
 const styles = StyleSheet.create({

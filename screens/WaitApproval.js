@@ -40,7 +40,7 @@ export default class Welcome extends Component {
 }
 
 Welcome.navigationOptions = {
-  header: null
+  headerShown: false,
 };
 
 const styles = StyleSheet.create({

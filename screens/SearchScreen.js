@@ -29,7 +29,7 @@ class SearchScreen extends Component {
 
             <View style={styles.container}>
 
-                <NotHeader headerName="Search" onPress={() => this.props.navigation.navigate("Search")}/>
+                <NotHeader headerName="Search" onPress={() => this.props.navigation.navigate("Search")} />
 
                 <ScrollView>
 
@@ -74,6 +74,6 @@ class SearchScreen extends Component {
     }
 }
 SearchScreen.navigationOptions = {
-    header: null,
+    headerShown: false,
 };
 export default SearchScreen;

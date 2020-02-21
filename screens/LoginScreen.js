@@ -13,17 +13,65 @@ import {
   Button,
   TouchableHighlight,
   Dimensions,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  AsyncStorage
 } from "react-native";
 import { MonoText } from "../components/StyledText";
 import MainButton from "../components/Buttons/mainButton";
 import Inputs from "../components/Input";
 import TransInput from "../components/TextInputs/EditInput";
 import Colors from "../constants/Colors";
+import { token } from "../constants/util";
 // import FormPicker from '../components/select/selectPicker';;
 const { width } = Dimensions.get("window");
 const screenheight = Dimensions.get("window").height;
 class LoginScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+      email: '',
+      password: '',
+    };
+  }
+
+  Login = () => {
+
+    var data = {
+
+      email: this.state.email,
+      password: this.state.password,
+
+    }
+    fetch('https://infour.herokuapp.com/api/login', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+
+    })
+      .then((response) => response.json())
+      .then(async (response) => {
+
+        // console.log(response)
+        await AsyncStorage.setItem(token, response.token);
+        if (response.token !== null) {
+          this.props.navigation.navigate('TabScreen');
+        }
+        else {
+          alert('Username or Password are Incorrect')
+        }
+        // console.log(response);
+      }).catch((error) => {
+        console.log(error)
+      });
+    // if (data == "first_name") {
+    //   alert("authenticated successfully!!!");
+    // }
+
+  }
   render() {
     return (
       <ScrollView>
@@ -33,12 +81,14 @@ class LoginScreen extends Component {
           </View>
 
           <View style={styles.Form}>
-            <TransInput title="Email" />
-            <TransInput title="Password" />
+            <TransInput type="email" title="Email" onChangeText={email => this.setState({ email: email })}
+              value={this.state.email} />
+            <TransInput type="password" title="Password" onChangeText={password => this.setState({ password: password })}
+              value={this.state.password} />
 
             <MainButton
               text="Login"
-              onPress={() => this.props.navigation.navigate("TabScreen")}
+              onPress={this.Login}
             />
 
             <TouchableOpacity
@@ -46,7 +96,7 @@ class LoginScreen extends Component {
             >
               <Text style={styles.ptext}>
                 Don't have an account yet ?
-                <Text style={styles.span}>Sign Up</Text>{" "}
+                <Text style={styles.span}>Sign Up</Text>
               </Text>
             </TouchableOpacity>
           </View>
@@ -61,7 +111,7 @@ class LoginScreen extends Component {
   }
 }
 LoginScreen.navigationOptions = {
-  header: null
+  headerShown: false,
 };
 export default LoginScreen;
 const styles = StyleSheet.create({

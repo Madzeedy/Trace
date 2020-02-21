@@ -37,14 +37,14 @@ class StartingPick extends Component {
         </Text>
         <TouchableOpacity style={styles.button} >
           {/* <Text style={styles.text}>Skip</Text> */}
-          <MainButton text="Pick" onPress={() => this.props.navigation.navigate("Search3Screen")}/>
+          <MainButton text="Pick" onPress={() => this.props.navigation.navigate("Search3Screen")} />
         </TouchableOpacity>
       </View>
     );
   }
 }
 StartingPick.navigationOptions = {
-  header: null
+  headerShown: false,
 };
 
 const styles = StyleSheet.create({

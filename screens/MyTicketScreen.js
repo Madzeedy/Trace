@@ -45,5 +45,5 @@ export default class MyTicketScreen extends Component {
     }
 }
 MyTicketScreen.navigationOptions = {
-    header: null,
+    headerShown: false,
 };

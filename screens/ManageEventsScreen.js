@@ -26,15 +26,15 @@ class ManageEventsScreen extends Component {
           onPress={() => this.props.navigation.navigate("Notification")}
         />
         <ScrollableTabView>
-          <LiveEventScreen tabLabel="Live" {...this.props}/>
-          <PastEventScreen tabLabel="Past" {...this.props}/>
+          <LiveEventScreen tabLabel="Live" {...this.props} />
+          <PastEventScreen tabLabel="Past" {...this.props} />
         </ScrollableTabView>
       </View>
     );
   }
 }
 ManageEventsScreen.navigationOptions = {
-  header: null
+  headerShown: false,
 };
 
 const styles = StyleSheet.create({

@@ -34,7 +34,7 @@ class LiveEventScreen extends Component {
 }
 
 LiveEventScreen.navigationOptions = {
-  header: null
+  headerShown: false,
 };
 
 const styles = StyleSheet.create({

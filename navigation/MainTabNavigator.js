@@ -36,8 +36,8 @@ HomeStack.navigationOptions = {
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `home${focused ? '' : '-outline'}`
-          : 'home'
+          ? `ios-home${focused ? '' : ''}`
+          : 'md-home'
       }
     />
 
@@ -107,7 +107,7 @@ const SettingsStack = createStackNavigator(
 );
 
 Organizer.navigationOptions = {
-  header: null,
+  headerShown: false,
 }
 
 SettingsStack.navigationOptions = {
@@ -132,7 +132,7 @@ const tabNavigator = createBottomTabNavigator({
 tabNavigator.path = '';
 
 tabNavigator.navigationOptions = {
-  header : null,
+  header: null,
 }
 
 export default tabNavigator;

@@ -22,8 +22,8 @@ class HomeScreen extends Component {
           onPress={() => this.props.navigation.navigate("Notification")}
         />
         <ScrollableTabView>
-          <ExploreScreen tabLabel="Explore" {...this.props}/>
-          <MyEventScreen tabLabel="My Event" {...this.props}/>
+          <ExploreScreen tabLabel="Explore" {...this.props} />
+          <MyEventScreen tabLabel="My Event" {...this.props} />
         </ScrollableTabView>
       </View>
     );
@@ -31,7 +31,7 @@ class HomeScreen extends Component {
 }
 
 HomeScreen.navigationOptions = {
-  header: null
+  headerShown: false,
 };
 
 const styles = StyleSheet.create({

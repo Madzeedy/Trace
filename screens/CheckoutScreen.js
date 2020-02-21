@@ -80,7 +80,7 @@ class CheckoutScreen extends Component {
                          Up" onPress={() => this.props.navigation.navigate("TabScreen")} /> */}
                         </View>
                         <View style={styles.Form}>
-                            <MainButton text="Pay Now" onPress={() => this.props.navigation.navigate("Payment")}/>
+                            <MainButton text="Pay Now" onPress={() => this.props.navigation.navigate("Payment")} />
                         </View>
                     </View>
 
@@ -95,6 +95,6 @@ class CheckoutScreen extends Component {
     }
 }
 CheckoutScreen.navigationOptions = {
-    header: null
+    headerShown: false,
 };
 export default CheckoutScreen;

@@ -165,7 +165,7 @@ class Memo extends Component {
   }
 }
 Memo.navigationOptions = {
-  header: null
+  headerShown: false,
 };
 
 const styles = StyleSheet.create({
@@ -248,8 +248,8 @@ const styles = StyleSheet.create({
     borderRadius: 5
   },
   image2details: {
-      marginLeft: 10,
-      paddingBottom: 30
+    marginLeft: 10,
+    paddingBottom: 30
   },
   all: {
     flexDirection: "row"
