@@ -43,7 +43,7 @@ class LoginScreen extends Component {
       password: this.state.password,
 
     }
-    fetch('https://infour.herokuapp.com/api/login', {
+    fetch('https://tracevent.herokuapp.com/api/login', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -55,7 +55,7 @@ class LoginScreen extends Component {
       .then((response) => response.json())
       .then(async (response) => {
 
-        // console.log(response)
+        console.log(response)
         await AsyncStorage.setItem(token, response.token);
         if (response.token !== null) {
           this.props.navigation.navigate('TabScreen');

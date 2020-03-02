@@ -43,7 +43,6 @@ class SignUpScreen extends Component {
             last_name: this.state.last_name,
             email: this.state.email,
             password: this.state.password,
-            phone: this.state.phone,
         }
         fetch('https://tracevent.herokuapp.com/api/signup', {
             method: 'POST',
@@ -57,7 +56,7 @@ class SignUpScreen extends Component {
             .then((response) => response.json())
             .then(async (response) => {
 
-                // console.log(response)
+                console.log(response)
                 await AsyncStorage.setItem(token, response.token);
                 if (response.token !== null) {
                     this.props.navigation.navigate('TabScreen');
@@ -120,7 +119,7 @@ class SignUpScreen extends Component {
     }
 }
 SignUpScreen.navigationOptions = {
-    header: null
+    headerShown: false,
 };
 export default SignUpScreen;
 const styles = StyleSheet.create({

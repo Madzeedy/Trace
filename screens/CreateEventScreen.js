@@ -8,7 +8,8 @@ import {
   KeyboardAvoidingView,
   Dimensions,
   ScrollView,
-  TouchableOpacity
+  TouchableOpacity,
+  AsyncStorage
 } from "react-native";
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
@@ -18,6 +19,7 @@ import TransInput from "../components/TextInputs/EditInput";
 import MainButton from "../components/Buttons/mainButton";
 import BackHeader from "../components/Header/BackHeader";
 import DateTimePicker from "react-native-modal-datetime-picker";
+import { token } from "../constants/util";
 import Colors from "../constants/Colors";
 import moment from 'moment';
 import styles from "../components/genStyle/styles";
@@ -34,10 +36,11 @@ export default class CreateEventScreen extends Component {
       date: "",
       category: "",
       event: "",
-      image: null,
+      eventImage: "",
       title: '',
       description: '',
       start_date: '',
+      end_date: '',
       venue: '',
     };
   }
@@ -45,24 +48,26 @@ export default class CreateEventScreen extends Component {
   handlePicker = (datetime) => {
     this.setState({
       isVisible: false,
-      start_date: moment(datetime).format("YYYY-MM-DD      HH:mm"),
+      start_date: moment(datetime).format("lll"),
 
     });
   };
-  Picker = () => {
+  Picker = (datetime) => {
     this.setState({
-      visible: false
+      visible: false,
+      end_date: moment(datetime).format("lll"),
+
     });
   };
   showPicker = () => {
     this.setState({
-      visible: true
+      isVisible: true
     });
   };
 
   show = () => {
     this.setState({
-      isVisible: true
+      visible: true
     });
   };
 
@@ -79,30 +84,49 @@ export default class CreateEventScreen extends Component {
   };
   //Backend Post
 
-  Event = () => {
+  Event = async () => {
+    const getToken = await AsyncStorage.getItem(token);
+    // console.log(getToken)
+
+    let image = new FormData();
+    image.append("image", image)
     var data = {
       title: this.state.title,
       description: this.state.description,
       start_date: this.state.start_date,
+      end_date: this.state.end_date,
       venue: this.state.venue,
-
+      eventImage: this.state.eventImage,
     }
+
     fetch('https://tracevent.herokuapp.com/api/event', {
       method: 'POST',
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-
+        // 'Accept': 'application/json',
+        'Content-Type': 'multipart/form-data',
+        'Authorization': `Bearer ${getToken}`
       },
-      body: JSON.stringify(data),
+
+      body: JSON.stringify(data)
 
     })
-      .then((response) => response.json())
-      .then((responseJson) => {
-        console.log('response object:', responseJson)
-      })
+      .then((response) => {
+        response.json()
+        console.log(response)
+      }
+      )
+      .then(async (response) => {
 
-      .catch((error) => {
+
+        console.log(response)
+        if (getToken !== null) {
+          this.props.navigation.navigate('TabScreen');
+        }
+        else {
+          console.log('try again')
+        }
+        // console.log(response);
+      }).catch((error) => {
         console.log(error)
       });
     console.log(data)
@@ -111,7 +135,7 @@ export default class CreateEventScreen extends Component {
   // end 
 
   render() {
-    let { image } = this.state;
+    let { eventImage } = this.state;
     return (
       <View style={{ flex: 1 }}>
         <BackHeader
@@ -138,7 +162,10 @@ export default class CreateEventScreen extends Component {
             />
           </View>
           <Text style={styles.subEvent}>Event Ends</Text>
-          <View style={styles.viewBack}>
+          <View style={styles.viewBac}>
+            <View style={styles.Form}>
+              <Text style={styles.time}>{this.state.end_date}</Text>
+            </View>
             <MainButton
               text="Select Date&Time"
               style={{ marginLeft: -20 }}
@@ -158,11 +185,13 @@ export default class CreateEventScreen extends Component {
               onPress={() => this.props.navigation.navigate("Ticket")}
             >
 
+              Ticket
             </Text>
             <View
               style={{ borderWidth: 0.7, width: 240, marginBottom: 10 }}
             ></View>
-            <TransInput style={{ paddingTop: 10 }} title="Venue" />
+            <TransInput style={{ paddingTop: 10 }} title="Venue" onChangeText={venue => this.setState({ venue: venue })}
+              value={this.state.venue} />
           </View>
 
           <View style={styles.viewPicker}>
@@ -246,7 +275,7 @@ export default class CreateEventScreen extends Component {
 
   componentDidMount() {
     this.getPermissionAsync();
-    console.log('hi');
+    // console.log('hi');
   }
 
   getPermissionAsync = async () => {
@@ -257,7 +286,6 @@ export default class CreateEventScreen extends Component {
       }
     }
   }
-
   _pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
@@ -269,9 +297,12 @@ export default class CreateEventScreen extends Component {
     console.log(result);
 
     if (!result.cancelled) {
-      this.setState({ image: result.uri });
+      this.setState({ eventImage: result.uri });
     }
-  };
+  }
+
+
+
 }
 CreateEventScreen.navigationOptions = {
   headerShown: false,
